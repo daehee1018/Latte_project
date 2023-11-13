@@ -1,4 +1,4 @@
-include "head.h"
+#include "head.h"
 #include <locale.h>  // 로케일 설정을 위한 헤더 파일
 
 int rock() {
@@ -8,7 +8,7 @@ int rock() {
     // 랜덤 시드 설정
     srand(time(NULL));
 
-    printf("가위바위보 게임이 시작됩니다."\n\n");
+    printf("가위바위보 게임이 시작됩니다.\n\n");
     printf("게임은 5라운드 까지 진행되고, 이기면 2점, 비기면 1점, 지면 0점을 얻습니다.\n\n");
     printf("0: 가위, 1: 바위, 2: 보\n\n");
 
