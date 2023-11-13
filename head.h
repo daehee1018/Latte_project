@@ -8,6 +8,8 @@
 
 int snack;
 int rock(void);
+void choice_cat(void);
 void blackjack(void);
 void title(void);
 void shop(void);
+void name_cat(void);
