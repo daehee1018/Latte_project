@@ -20,13 +20,18 @@ int rock() {
     printf("1: 가위, 2: 바위, 3: 보\n\n");
 
     for (int round = 1; round <= 5; round++) {
+        
         int playerChoice, computerChoice;
+        
 
 
 
         // 플레이어의 선택 받기
         while (1) {
-            printf("라운드 %d: 당신의 선택은? ", round);
+
+            printf("                                                    현재까지 획득한 간식 : % d개\n", playerScore);
+            printf("라운드 %d: 당신의 선택은?\n ", round);
+            
             if (scanf_s("%d", &playerChoice) != 1 || playerChoice < 1 || playerChoice > 3) {
                 printf("잘못된 선택입니다. 1, 2, 3 중에서 선택하세요.\n");
                 while (getchar() != '\n'); // 버퍼 비우기
@@ -74,6 +79,7 @@ int rock() {
 
         printf("\n컴퓨터:\n");
         switch (computerChoice) {
+
         case 1:
             printf("   _______\n");
             printf("---'   ____)____\n");
@@ -81,6 +87,7 @@ int rock() {
             printf("       __________)\n");
             printf("      (____)\n");
             printf("---.__(___)\n");
+
             break;
         case 2:
             printf("    _______\n");
@@ -89,7 +96,9 @@ int rock() {
             printf("      (_____)       \n");
             printf("      (____)        \n");
             printf("---.__(___)         \n");
+
             break;
+
         case 3:
             printf("    _______\n");
             printf("---'   ____)____\n");
@@ -97,24 +106,28 @@ int rock() {
             printf("          _______)\n");
             printf("         _______)\n");
             printf("---.__________)\n");
+
             break;
 
         }
 
         // 게임 결과 출력
         if (playerChoice == computerChoice) {
-            printf("비겼습니다!\n");
+            printf("비겼습니다! 츄르 +1\n");
             playerScore += 1;
             computerScore += 1;
+
         }
         else if ((playerChoice == 1 && computerChoice == 3) ||
             (playerChoice == 2 && computerChoice == 1) ||
             (playerChoice == 3 && computerChoice == 2)) {
-            printf("당신이 이겼습니다!\n");
+            printf("당신이 이겼습니다! 츄르 +2\n");
             playerScore += 2;
+              
         }
         else {
-            printf("컴퓨터가 이겼습니다!\n");
+            printf("컴퓨터가 이겼습니다! 츄르 +0\n");
+
         }
     }
 
@@ -123,7 +136,7 @@ int rock() {
     setlocale(LC_CTYPE, "");  // 로케일을 설정하여 유니코드 출력을 활성화
 
     printf("\n게임 종료\n");
-    printf("획득한 간식 : % d개\n", playerScore);
+    printf("총 획득한 츄르 : % d개\n", playerScore);
     printf("┏━━┓ \n");
     printf("┃━━┃ \n");
     printf("┃  ┃\n");
@@ -132,5 +145,10 @@ int rock() {
     printf("┃르┃\n");
     printf("┃  ┃\n");
     printf("┗━━┛\n");
+
+
     return 0;
+
+
+ 
 }
