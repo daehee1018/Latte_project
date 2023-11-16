@@ -107,26 +107,36 @@ int rock() {
             break;
 
         }
-
+        int a;
         // 게임 결과 출력
         if (playerChoice == computerChoice) {
             printf("비겼습니다! 츄르 +1\n");
             playerScore += 1;
             computerScore += 1;
+            printf("테스트\n");
+           
+            }
 
-        }
+        
         else if ((playerChoice == 1 && computerChoice == 3) ||
             (playerChoice == 2 && computerChoice == 1) ||
             (playerChoice == 3 && computerChoice == 2)) {
             printf("당신이 이겼습니다! 츄르 +2\n");
             playerScore += 2;
-              
+            printf("테스트\n");
+            
         }
         else {
             printf("컴퓨터가 이겼습니다! 츄르 +0\n");
-
+              printf("테스트\n");
+            
+            }
+            printf("아무 키나 눌러 다음으로 진행합니다.\n");
+            printf("                                                    현재까지 획득한 간식 : % d개\n", playerScore);
+            _getch();
+            system("cls");
         }
-    }
+    
 
 
 
