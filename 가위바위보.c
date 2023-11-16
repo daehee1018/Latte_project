@@ -1,9 +1,6 @@
 #include "head.h"
 #include <locale.h>  // 로케일 설정을 위한 헤더 파일
 
-
-
-
 // testing text...
 // testing 2
 // testing 3
