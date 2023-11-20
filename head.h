@@ -13,4 +13,4 @@ void title(void);
 void shop(void);
 void name_cat(void);
 void initialize_deck(void);
-void blackjack(void);
+void start_blackjack(void);
