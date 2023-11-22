@@ -61,11 +61,14 @@ void blackjack() {
             player[1] = rand() % 13 + 1;
             player[2] = rand() % 13 + 1;
 
-            if (dealer[1] > 10) dealer[1] = 10;        // J, Q, K
+            if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
             if (dealer[2] > 10) dealer[2] = 10;
             if (player[1] > 10) player[1] = 10;
             if (player[2] > 10) player[2] = 10;
-           
+            if (dealer[3] > 10) dealer[3] = 10;
+            if (dealer[4] > 10) dealer[4] = 10;
+            if (player[3] > 10) player[3] = 10;
+            if (player[4] > 10) player[4] = 10;
 
             if (dealer[1] == 1 && dealer[2] == 1) { dealer[1] = 11; dealer[2] = 1; }  // 두장 모두 에이스
             else if (dealer[1] == 1) { dealer[1] = 11; }
@@ -89,7 +92,7 @@ void blackjack() {
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
-                return;
+                blackjack();
             }
             else if (sel_menu == 2) 
                 title();
@@ -102,7 +105,7 @@ void blackjack() {
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
-                return;
+                blackjack();
             }
             else if (sel_menu == 2)
                 title();
@@ -115,7 +118,7 @@ void blackjack() {
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
-                return;
+                blackjack();
             }
             else if (sel_menu == 2)
                 title();
@@ -125,6 +128,15 @@ void blackjack() {
         sum_dealer = 0;
 
         //초기 카드 출력
+        if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
+        if (dealer[2] > 10) dealer[2] = 10;
+        if (player[1] > 10) player[1] = 10;
+        if (player[2] > 10) player[2] = 10;
+        if (dealer[3] > 10) dealer[3] = 10;        
+        if (dealer[4] > 10) dealer[4] = 10;
+        if (player[3] > 10) player[3] = 10;
+        if (player[4] > 10) player[4] = 10;
+
         printf("[딜    러] 카드1:%2d  카드2: ?\n", dealer[1]);
         printf("┌─────────┐┌─────────┐\n");
         printf("│         ││         │\n");
@@ -156,10 +168,10 @@ void blackjack() {
             {
             case 1:   // hit  
                 player[++player_index] = rand() % 13 + 1;
-                if (dealer[3] > 10) dealer[1] = 10;        // J, Q, K
-                if (dealer[4] > 10) dealer[2] = 10;
-                if (player[3] > 10) player[1] = 10;
-                if (player[4] > 10) player[2] = 10;
+                if (dealer[3] > 10) dealer[3] = 10;        // J, Q, K
+                if (dealer[4] > 10) dealer[4] = 10;
+                if (player[3] > 10) player[3] = 10;
+                if (player[4] > 10) player[4] = 10;
 
                 if (player[player_index] == 1)       // 에이스
                 {
@@ -185,8 +197,18 @@ void blackjack() {
                 if (sum_dealer < 17)  // 딜러의 이전카드까지의 합이 17미만인 경우 카드 하나 더
                 {
                     dealer[++dealer_index] = rand() % 13 + 1;
+                
                     sum_dealer = 0;
+
                     for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
+                    if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
+                    if (dealer[2] > 10) dealer[2] = 10;
+                    if (player[1] > 10) player[1] = 10;
+                    if (player[2] > 10) player[2] = 10;
+                    if (dealer[3] > 10) dealer[3] = 10;
+                    if (dealer[4] > 10) dealer[4] = 10;
+                    if (player[3] > 10) player[3] = 10;
+                    if (player[4] > 10) player[4] = 10;
                     system("cls");
                     printf("[딜    러] 카드1:%2d  카드2: %d  카드 3 : ??\n", dealer[1], dealer[2]);
                     printf("┌─────────┐┌─────────┐┌─────────┐\n");
@@ -426,11 +448,11 @@ void blackjack() {
             }
             break;
         case 2:
-            printf("보유 금액 : %d\n", snack);
-            break;
+            printf("보유 간식 수 : %d\n", snack);
+            title();
         case 0:
             printf("다음 기회에…!!\n");
-            return;
+            title();
         default:
             break;
         }
