@@ -1,6 +1,8 @@
 #include "head.h"
 #include <locale.h>  // 로케일 설정을 위한 헤더 파일
 
+
+
 // testing text...
 // testing 2
 // testing 3
@@ -17,9 +19,9 @@ int rock() {
     printf("1: 가위, 2: 바위, 3: 보\n\n");
 
     for (int round = 1; round <= 5; round++) {
-        
+
         int playerChoice, computerChoice;
-        
+
 
 
 
@@ -27,8 +29,8 @@ int rock() {
         while (1) {
 
             printf("                                                    현재까지 획득한 간식 : % d개\n", playerScore);
-            printf("라운드 %d: 당신의 선택은?\n ", round);
-            
+            printf("라운드 %d: 당신의 선택은? (1: 가위, 2: 바위, 3: 보)\n ", round);
+
             if (scanf_s("%d", &playerChoice) != 1 || playerChoice < 1 || playerChoice > 3) {
                 printf("잘못된 선택입니다. 1, 2, 3 중에서 선택하세요.\n");
                 while (getchar() != '\n'); // 버퍼 비우기
@@ -113,30 +115,30 @@ int rock() {
             printf("비겼습니다! 츄르 +1\n");
             playerScore += 1;
             computerScore += 1;
-            printf("테스트\n");
-           
-            }
 
-        
+
+        }
+
+
         else if ((playerChoice == 1 && computerChoice == 3) ||
             (playerChoice == 2 && computerChoice == 1) ||
             (playerChoice == 3 && computerChoice == 2)) {
             printf("당신이 이겼습니다! 츄르 +2\n");
             playerScore += 2;
-            printf("테스트\n");
-            
+
+
         }
         else {
             printf("컴퓨터가 이겼습니다! 츄르 +0\n");
-              printf("테스트\n");
-            
-            }
-            printf("아무 키나 눌러 다음으로 진행합니다.\n");
-            printf("                                                    현재까지 획득한 간식 : % d개\n", playerScore);
-            _getch();
-            system("cls");
+
+
         }
-    
+        printf("아무 키나 눌러 다음으로 진행합니다.\n");
+        printf("                                                    현재까지 획득한 간식 : % d개\n", playerScore);
+        _getch();
+        system("cls");
+    }
+
 
 
 
@@ -154,8 +156,10 @@ int rock() {
     printf("┗━━┛\n");
 
 
+
+
     return 0;
 
 
- 
+
 }
