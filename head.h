@@ -14,3 +14,6 @@ void shop(void);
 void name_cat(void);
 void initialize_deck(void);
 void start_blackjack(void);
+char ID[20];//아이디
+char id(void);// 아이디 등록
+void gotoxy(int x, int y);
