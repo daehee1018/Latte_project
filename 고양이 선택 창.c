@@ -4,12 +4,15 @@
 
 void cat1() {
 	printf("나는야 고양이 1\n");
+	system("cls"); name_cat();
 }
 void cat2() {
 	printf("나는야 고양이 2\n");
+	system("cls"); name_cat();
 }
 void cat3() {
 	printf("나는야 고양이 3\n");
+	system("cls"); name_cat();
 }
 
 
