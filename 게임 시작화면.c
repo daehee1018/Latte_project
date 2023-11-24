@@ -5,7 +5,7 @@
 
 void main() {
     // 파일 열기
-    FILE* file = fopen("score.txt", "w");
+    FILE* file = fopen("score.txt", "r");
     int snack;
     int loadedSnack;
     int total_snack;
