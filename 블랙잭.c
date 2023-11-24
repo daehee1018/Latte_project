@@ -98,7 +98,16 @@ void blackjack() {
         {
             printf("☆☆☆ 플레이어 블랙 잭 ☆☆☆\n");
             currentSnack = currentSnack + (bet_snack * 2);     // 베팅액 2배 +
-            printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, bet_snack * 2);
+            GotoXY(50, 30);
+            printf("현재 간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
+            printf("┏━━┓ \n");
+            printf("┃━━┃ \n");
+            printf("┃  ┃\n");
+            printf("┃츄┃\n");
+            printf("┃  ┃x %d\n", currentSnack);
+            printf("┃르┃\n");
+            printf("┃  ┃\n");
+            printf("┗━━┛\n");
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
@@ -112,7 +121,16 @@ void blackjack() {
         {
             printf("▽▽▽ 딜러 블랙 잭 ▽▽▽\n");
             currentSnack -= bet_snack;                           // 베팅액 -
-            printf("현재 보유 중인 간식 수 : %d(-%d)", currentSnack, bet_snack);
+            GotoXY(50, 30);
+            printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack);
+            printf("┏━━┓ \n");
+            printf("┃━━┃ \n");
+            printf("┃  ┃\n");
+            printf("┃츄┃\n");
+            printf("┃  ┃x %d\n", currentSnack);
+            printf("┃르┃\n");
+            printf("┃  ┃\n");
+            printf("┗━━┛\n");
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
@@ -125,7 +143,15 @@ void blackjack() {
         else if (sum_player == 21 && sum_dealer == 21)
         {
             printf("◎◎◎ 플레이어&딜러 블랙 잭 ◎◎◎\n");    
-            printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, 0);
+            printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
+            printf("┏━━┓ \n");
+            printf("┃━━┃ \n");
+            printf("┃  ┃\n");
+            printf("┃츄┃\n");
+            printf("┃  ┃x %d\n", currentSnack);
+            printf("┃르┃\n");
+            printf("┃  ┃\n");
+            printf("┗━━┛\n");
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
@@ -258,7 +284,16 @@ void blackjack() {
                     if (sum_player > 21 && sum_dealer > 21)
                     {
                         printf("◎ 비겼습니다 ◎ (All bust)\n");
-                        printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, 0);
+                        GotoXY(50, 30);
+                        printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
+                        printf("┏━━┓ \n");
+                        printf("┃━━┃ \n");
+                        printf("┃  ┃\n");
+                        printf("┃츄┃\n");
+                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃르┃\n");
+                        printf("┃  ┃\n");
+                        printf("┗━━┛\n");
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
@@ -272,7 +307,15 @@ void blackjack() {
                     {
                         printf("▽ 졌습니다 ▽ (Player bust)\n");
                         currentSnack -= bet_snack;
-                        printf("현재 보유 중인 간식 수 : %d(-%d)", currentSnack, bet_snack);
+                        printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack);
+                        printf("┏━━┓ \n");
+                        printf("┃━━┃ \n");
+                        printf("┃  ┃\n");
+                        printf("┃츄┃\n");
+                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃르┃\n");
+                        printf("┃  ┃\n");
+                        printf("┗━━┛\n");
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
@@ -286,7 +329,15 @@ void blackjack() {
                     {
                         printf("☆ 이겼습니다 ☆ (Dealer bust)\n");
                         currentSnack = currentSnack + (bet_snack * 2);
-                        printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, bet_snack * 2);
+                        printf("현재 간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
+                        printf("┏━━┓ \n");
+                        printf("┃━━┃ \n");
+                        printf("┃  ┃\n");
+                        printf("┃츄┃\n");
+                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃르┃\n");
+                        printf("┃  ┃\n");
+                        printf("┗━━┛\n");
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
@@ -300,7 +351,15 @@ void blackjack() {
                     {
                         printf("▽ 졌습니다 ▽\n");
                         currentSnack -= bet_snack;   
-                        printf("현재 보유 중인 간식 수 : %d(-%d)", currentSnack, bet_snack);
+                        printf("현재 간식 수 : %d(-%d)", currentSnack, bet_snack);
+                        printf("┏━━┓ \n");
+                        printf("┃━━┃ \n");
+                        printf("┃  ┃\n");
+                        printf("┃츄┃\n");
+                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃르┃\n");
+                        printf("┃  ┃\n");
+                        printf("┗━━┛\n");
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
@@ -314,7 +373,15 @@ void blackjack() {
                     {
                         printf("☆ 이겼습니다 ☆\n");
                         currentSnack= currentSnack + (bet_snack * 2);
-                        printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, bet_snack * 2);
+                        printf("현재  간식 수 : %d(+%d)", currentSnack, bet_snack * 2);
+                        printf("┏━━┓ \n");
+                        printf("┃━━┃ \n");
+                        printf("┃  ┃\n");
+                        printf("┃츄┃\n");
+                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃르┃\n");
+                        printf("┃  ┃\n");
+                        printf("┗━━┛\n");
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
@@ -327,7 +394,15 @@ void blackjack() {
                     else
                     {
                         printf("◎ 비겼습니다 ◎\n");
-                        printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, 0);
+                        printf("현재 간식 수 : %d(+%d)", currentSnack, 0);
+                        printf("┏━━┓ \n");
+                        printf("┃━━┃ \n");
+                        printf("┃  ┃\n");
+                        printf("┃츄┃\n");
+                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃르┃\n");
+                        printf("┃  ┃\n");
+                        printf("┗━━┛\n");
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
@@ -374,7 +449,15 @@ void blackjack() {
                 if (sum_dealer > 21 && sum_player > 21)
                 {
                     printf("◎ 비겼습니다 ◎ (All bust)\n");  
-                    printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, 0);
+                    printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
@@ -388,7 +471,16 @@ void blackjack() {
                 {
                     printf("▽ 졌습니다 ▽ (Player bust)\n");
                     currentSnack -= bet_snack;
-                    printf("현재 보유 중인 간식 수 : %d(-%d)", currentSnack, bet_snack );
+
+                    printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack );
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
@@ -402,7 +494,15 @@ void blackjack() {
                 {
                     printf("☆ 이겼습니다 ☆ (Dealer bust)\n");
                     currentSnack = currentSnack+ (bet_snack * 2);
-                    printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, bet_snack * 2);
+                    printf("현재 간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) 
@@ -416,7 +516,15 @@ void blackjack() {
                 {
                     printf("▽ 졌습니다 ▽\n"); 
                     currentSnack -= bet_snack;
-                    printf("현재 보유 중인 간식 수 : %d(-%d)", currentSnack, bet_snack );
+                    printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack );
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
                      printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
@@ -430,7 +538,15 @@ void blackjack() {
                 {
                     printf("☆ 이겼습니다 ☆\n");
                     currentSnack = currentSnack + (bet_snack * 2);         // 베팅액 만큼 추가
-                    printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, bet_snack * 2);
+                    printf("현재 간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
@@ -443,7 +559,15 @@ void blackjack() {
                 else
                 {
                     printf("◎ 비겼습니다 ◎\n");
-                    printf("현재 보유 중인 간식 수 : %d(+%d)", currentSnack, 0);
+                    printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
@@ -471,7 +595,15 @@ void blackjack() {
             }
             break;
         case 2:
-            printf("보유 간식 수 : %d\n", currentSnack);
+            printf("현재 간식 수 : %d\n", currentSnack);
+            printf("┏━━┓ \n");
+            printf("┃━━┃ \n");
+            printf("┃  ┃\n");
+            printf("┃츄┃\n");
+            printf("┃  ┃x %d\n", currentSnack);
+            printf("┃르┃\n");
+            printf("┃  ┃\n");
+            printf("┗━━┛\n");
             title();
         case 0:
             printf("다음 기회에…!!\n");
@@ -502,3 +634,21 @@ void start_blackjack() {
         system("cls");  blackjack();
     }
 }
+/* printf("┏━━┓ \n");
+    printf("┃━━┃ \n");
+    printf("┃  ┃\n");
+    printf("┃츄┃\n");
+    printf("┃  ┃x %d\n", currentSnack);
+    printf("┃르┃\n");
+    printf("┃  ┃\n");
+    printf("┗━━┛\n");
+    // 새로운 점수를 파일에 저장하기
+    file = fopen("score.txt", "w");
+    if (file != NULL) {
+        fprintf(file, "%d", currentSnack);
+        fclose(file);
+        printf("게임이 종료되었습니다. 최종 점수: %d\n", currentSnack);
+    }
+    else {
+        printf("파일을 열 수 없습니다. 점수를 저장할 수 없습니다.\n");
+    }*/
