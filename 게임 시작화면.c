@@ -4,6 +4,13 @@
 #include <locale.h>  // 로케일 설정을 위한 헤더 파일
 
 void main() {
+    // 파일 열기
+    FILE* file = fopen("score.txt", "w");
+    int snack;
+    int loadedSnack;
+    int total_snack;
+    // 파일 닫기
+    fclose(file);
 	int test;
 	SetConsoleOutputCP(65001);
 
