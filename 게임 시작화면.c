@@ -1,44 +1,36 @@
 ﻿#include"head.h"
 #include <stdio.h>
 #include <windows.h>
-#include <locale.h>  // 로케일 설정을 위한 헤더 파일
+#include <locale.h>  
 
-    void main() {
+    int main() {
         FILE* file = fopen("score.txt", "r");
-        int snack;
-        int loadedSnack;
-        int total_snack;
 
         if (file == NULL) {
-            // 파일이 없는 경우, 새로운 파일을 생성하고 초기값 설정
-            fclose(file); // 파일을 열었지만 존재하지 않아서 닫아줍니다.
-
-            // 파일을 쓰기 모드로 열어 초기값(예: 0)을 씁니다.
+            fclose(file);
             FILE* newFile = fopen("score.txt", "w");
             if (newFile != NULL) {
-                fprintf(newFile, "%d", 0); // 초기값을 파일에 씁니다.
+                fprintf(newFile, "%d", 0); 
                 fclose(newFile);
             }
             else {
-                printf("score.txt 파일을 생성할 수 없습니다.\n");
-                return 1; // 파일을 생성할 수 없으므로 종료합니다.
+                printf("score.txt error ");
+                return 1;
             }
         }
         else {
-            // 파일이 존재하면 파일을 닫습니다.
             fclose(file);
         }
 	int test;
 	SetConsoleOutputCP(65001);
 
-	system("chcp 65001"); // UTF-8 코드 페이지로 변경
+	system("chcp 65001");
 
 	wprintf(L"\xe2\x9d\xa4\xef\xb8\x8f\n");
 	wprintf(L"\xe2\x9c\x80");
 
 
-	setlocale(LC_CTYPE, "");  // 로케일을 설정하여 유니코드 출력을 활성화
-	
+	setlocale(LC_CTYPE, "");  
     printf("□□□□□□□□□□□□□□□■■■□□■■□□□□□□□□□□■■□□□□■■□□□□□□□□□□\n");
     printf("□□■■■■■■■■□□□□■■■■■□□■■□□□■■■■■□□■■□□□□■■□□□□□□□□□\n");
     printf("□□□□□□□□□■■□□■■□□□■■□■■■□□■■■■■□□■■□□□□■■□□□□□□□□□\n");
@@ -89,6 +81,6 @@
 
 
 
-
+    return 0;
 
 }
