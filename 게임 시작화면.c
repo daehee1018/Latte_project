@@ -3,14 +3,31 @@
 #include <windows.h>
 #include <locale.h>  // 로케일 설정을 위한 헤더 파일
 
-void main() {
-    // 파일 열기
-    FILE* file = fopen("score.txt", "r");
-    int snack;
-    int loadedSnack;
-    int total_snack;
-    // 파일 닫기
-    fclose(file);
+    void main() {
+        FILE* file = fopen("score.txt", "r");
+        int snack;
+        int loadedSnack;
+        int total_snack;
+
+        if (file == NULL) {
+            // 파일이 없는 경우, 새로운 파일을 생성하고 초기값 설정
+            fclose(file); // 파일을 열었지만 존재하지 않아서 닫아줍니다.
+
+            // 파일을 쓰기 모드로 열어 초기값(예: 0)을 씁니다.
+            FILE* newFile = fopen("score.txt", "w");
+            if (newFile != NULL) {
+                fprintf(newFile, "%d", 0); // 초기값을 파일에 씁니다.
+                fclose(newFile);
+            }
+            else {
+                printf("score.txt 파일을 생성할 수 없습니다.\n");
+                return 1; // 파일을 생성할 수 없으므로 종료합니다.
+            }
+        }
+        else {
+            // 파일이 존재하면 파일을 닫습니다.
+            fclose(file);
+        }
 	int test;
 	SetConsoleOutputCP(65001);
 
