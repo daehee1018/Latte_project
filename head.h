@@ -11,7 +11,6 @@ int rock(void);
 void choice_cat(void);
 void title(void);
 void shop(void);
-void name_cat(void);
 void initialize_deck(void);
 void start_blackjack(void);
 char ID[20];//¾ÆÀÌµð
