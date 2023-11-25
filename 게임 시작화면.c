@@ -7,7 +7,6 @@
         FILE* file = fopen("score.txt", "r");
    
         if (file == NULL) {
-            fclose(file);
             FILE* File = fopen("score.txt", "w");
             if (File != NULL) {
                 fprintf(File, "%d", 0); 
