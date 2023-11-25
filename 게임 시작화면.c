@@ -5,13 +5,13 @@
 
     int main() {
         FILE* file = fopen("score.txt", "r");
-
+   
         if (file == NULL) {
             fclose(file);
-            FILE* newFile = fopen("score.txt", "w");
-            if (newFile != NULL) {
-                fprintf(newFile, "%d", 0); 
-                fclose(newFile);
+            FILE* File = fopen("score.txt", "w");
+            if (File != NULL) {
+                fprintf(File, "%d", 0); 
+                fclose(File);
             }
             else {
                 printf("score.txt error ");
