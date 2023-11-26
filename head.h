@@ -17,3 +17,4 @@ char ID[20];//아이디
 char id(void);// 아이디 등록
 void gotoxy(int x, int y);
 void choice(void);
+void cat(void);
