@@ -68,21 +68,31 @@
     printf("□□□□□□□□□■■□□□□□□□□□□□□□□□□■■■■■■■■□□□□□□□□□□□■■□□\n");
     printf("□□□□□□□□□■■□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\n\n\n\n\n");
     
+    while (1) {
+        printf("고양이를 생성하기 원한다면 1을 눌러주세요\n");
+        printf("메인화면으로 이동하기를 원한다면 2을 눌러주세요\n");
 
-    printf("고양이를 생성하기 원한다면 1을 눌러주세요\n");
-    printf("메인화면으로 이동하기를 원한다면 2을 눌러주세요\n");
+        scanf("%d", &test);
 
-	scanf("%d", &test);
+        if (test == 1) {
+            system("cls");
+            choice_cat();
+            break; // 올바른 입력을 받았으므로 루프를 종료합니다.
+        }
+        else if (test == 2) {
+            system("cls");
+            title();
+            break; // 올바른 입력을 받았으므로 루프를 종료합니다.
+        }
+        else {
+            // 잘못된 입력 처리
+            printf("잘못된 입력입니다. 다시 입력해주세요.\n");
+            // 여기서 루프를 계속합니다.
 
-    if (test == 1)
-    {
-        system("cls"); choice_cat();
+
+        }
+
     }
-    else if (test == 2)
-    {
-        system("cls"); title();
-    }
-	
     
     system("mode con cols=100 lines=32 ");
 	
