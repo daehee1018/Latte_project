@@ -10,10 +10,10 @@ int rock(void);
 void choice_cat(void);
 void title(void);
 void shop(void);
-void name_cat(void);
 void initialize_deck(void);
 void start_blackjack(void);
 char ID[20];//아이디
 char id(void);// 아이디 등록
 void gotoxy(int x, int y);
 void choice(void);
+void cat(void);
