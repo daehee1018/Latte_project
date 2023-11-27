@@ -56,8 +56,8 @@
     _setmode(_fileno(stdout), _O_TEXT);
     printf("\n");
     printf("\n");
-    printf("고양이를 생성을 원한다면 1을 눌러주세요\n");
-    printf("메인화면으로 이동하기를 원한다면 2을 눌러주세요\n");
+    printf("                        고양이를 생성을 원한다면 1을 눌러주세요\n");
+    printf("                    메인화면으로 이동하기를 원한다면 2을 눌러주세요\n");
     
 
 
