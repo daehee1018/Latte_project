@@ -31,8 +31,6 @@ void blackjack() {
         printf(" 새로운 파일\n");
         // 파일을 열 수 없을 경우 기본 점수 0으로 설정
     }
-
-    
      
     while (1)
     {
@@ -288,7 +286,8 @@ void blackjack() {
                     printf("│         ││         ││         │\n");
                     printf("│         ││         ││         │\n");
                     printf("└─────────┘└─────────┘└─────────┘\n");
-                    printf("플레이어 합계: %d\n", sum_player);
+                    printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
+              
                 }
                 
                 else // 딜러 stand
@@ -452,6 +451,7 @@ void blackjack() {
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
+                        file = fopen("score.txt", "w");
                         if (file != NULL) {
                             fprintf(file, "%d", currentSnack);
                             fclose(file);
@@ -472,14 +472,7 @@ void blackjack() {
                     }
                 }
 
-                stand_dealer = 1;
-                printf("딜러 stand\n");
-                sum_player = 0;
-                sum_dealer = 0;
-                for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
-                for (i = 1; i <= player_index; i++) sum_player += player[i];
-                printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
-
+  
                 if (sum_player > 21 && sum_dealer > 21)
                 {
                     printf("◎ 비겼습니다 ◎ (All bust)\n");
@@ -631,6 +624,7 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
@@ -645,9 +639,6 @@ void blackjack() {
                         title();
                     }
                 }
-                if (file != NULL) {
-                    fprintf(file, "%d", currentSnack);
-                    fclose(file);
                 }
 
             case 2:   // stand  
@@ -693,6 +684,7 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
@@ -721,6 +713,7 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
@@ -748,6 +741,7 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
@@ -775,6 +769,7 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
@@ -802,6 +797,7 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
@@ -828,6 +824,7 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
@@ -847,10 +844,7 @@ void blackjack() {
             default:
                 break;
             }
-            if (sel_game == 2) {
-                system("pause"); title();
-               
-            }  // stand일 경우 loop break
+            // stand일 경우 loop break
                 if (stand_dealer == 1) // dealer stand일 경우 loop break;
                 {
                     stand_dealer = 0;
@@ -885,16 +879,16 @@ void blackjack() {
     }
 }
 void explain_blackjack() {
-    printf("플레이어는 카드를 받기 전에 베팅을 합니다\n.");
-    printf("딜러의 첫 번째 카드를 제외한 모든 카드는 공개됩니다.\n");
-    printf("  에이스는 1점 또는 11점으로 계산할 수 있고, J, Q, K는 각각 10점입니다..\n");
-    printf("처음 2장의 카드 합이 21점이면 '블랙잭'으로, 베팅액의 2배를 받습니다..\n");
-    printf(" 딜러가 '블랙잭'인 경우 플레이어는 베팅액의 2배를 잃습니다.\n");
-    printf("딜러와 플레이어가 모두 '블랙잭'인 경우 무승부로 베팅액은 돌려받습니다.\n.");
-    printf(" 플레이어는 21점에 가까워지기 위해 카드를 추가로 받거나 현재 카드로 멈출 수 있습니다.\n");
-    printf("  딜러는 플레이어 이후에 카드를 추가할지 여부를 결정합니다.\n");
-    printf("딜러의 점수가 17 미만이면 1장의 카드를 더 뽑고, 17 이상이면 추가로 카드를 뽑지 않습니다.\n");
-    printf("  21점을 초과하면 점수가 0점으로 처리됩니다.\n");
+    printf("\t-플레이어는 카드를 받기 전에 베팅을 합니다\n.");
+    printf("\t-딜러의 첫 번째 카드를 제외한 모든 카드는 공개됩니다.\n");
+    printf("\t-에이스는 1점 또는 11점으로 계산할 수 있고, J, Q, K는 각각 10점입니다..\n");
+    printf("\t-처음 2장의 카드 합이 21점이면 '블랙잭'으로, 베팅액의 2배를 받습니다..\n");
+    printf("\t-딜러가 '블랙잭'인 경우 플레이어는 베팅액의 2배를 잃습니다.\n");
+    printf("\t-딜러와 플레이어가 모두 '블랙잭'인 경우 무승부로 베팅액은 돌려받습니다.\n.");
+    printf("\t-플레이어는 21점에 가까워지기 위해 카드를 추가로 받거나 현재 카드로 멈출 수 있습니다.\n");
+    printf("\t-딜러는 플레이어 이후에 카드를 추가할지 여부를 결정합니다.\n");
+    printf("\t-딜러의 점수가 17 미만이면 1장의 카드를 더 뽑고, 17 이상이면 추가로 카드를 뽑지 않습니다.\n");
+    printf("\t-21점을 초과하면 점수가 0점으로 처리됩니다.\n");
 
     printf("블랙잭으로 돌아가려면 아무 키나 입력해주세요");
     _getch();
