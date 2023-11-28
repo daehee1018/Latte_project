@@ -7,8 +7,20 @@
 
 void shop()
 {
-	int selMenu;
+	int selMenu, currentSnack;
 
+	// 파일에서 이전 점수 읽어오기
+	FILE* file = fopen("score.txt", "r");
+	if (file != NULL) {
+		fscanf(file, "%d", &currentSnack);
+		fclose(file);
+	}
+	else {
+		printf(" 새로운 파일\n");
+		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
+	}
+
+	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	printf("                                       ┃           상점 메뉴 선택          ┃\n");
 	printf("                                       ┃                                   ┃\n");
@@ -133,3 +145,4 @@ void crown()
 	scanf(" %c", &buyCrown);
 
 }
+
