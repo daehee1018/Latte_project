@@ -110,8 +110,32 @@ void glasses_shop(){
 
 	_setmode(_fileno(stdout), _O_TEXT);
 	printf("                       범생이 안경 가격: 간식 500개\n\n");
-	printf("                  안경 구매를 진행하겠습니까? (Y/N) : ");
+	printf("                  안경 구매를 진행하겠습니까? (Y/N) : "); 
 	scanf(" %c", &buyGlasses);
+
+	if (buyGlasses == 'y' || buyGlasses == 'Y') {
+		if (currentSnack >= 500) {
+			currentSnack -= 500;
+			printf("안경을 성공적으로 구매하였습니다!\n");
+		}
+		else {
+			printf("간식이 부족하여 안경을 구매할 수 없습니다.\n"); 
+			printf("아무 키나 눌러 상점 메뉴로 돌아가기\n");
+			_getch();
+			system("cls"); shop();
+		}
+	}
+	else if (buyGlasses == 'n' || buyGlasses == 'N') {
+		system("cls");
+		shop();
+	}
+	else {
+		printf("유효하지 않은 입력입니다.\n");
+	}
+
+
+
+
 
 
 }
