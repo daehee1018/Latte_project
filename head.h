@@ -17,3 +17,4 @@ char id(void);// 아이디 등록
 void gotoxy(int x, int y);
 void choice(void);
 void cat(void);
+void hat_shop(void);
