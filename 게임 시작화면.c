@@ -59,20 +59,8 @@
     printf("\n");
     printf("                        고양이 생성을 원한다면 1을 눌러주세요\n");
     printf("                    메인화면으로 이동하기를 원한다면 2을 눌러주세요\n");
-<<<<<<< HEAD
         scanf("%d", &test);
 
-=======
-    
-    while (1) {
-        printf("고양이를 생성하기 원한다면 1을 눌러주세요\n");
-        printf("메인화면으로 이동하기를 원한다면 2을 눌러주세요\n");
-
-<<<<<<< HEAD
-=======
-        scanf("%d", &test);
->>>>>>> origin/main
->>>>>>> rock
 
         if (test == 1) {
             system("cls");
