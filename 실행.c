@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <Windows.h>
+
 void choice() {
     char choice;
     int currentSnack = 0;
