@@ -21,3 +21,4 @@ void hat_shop(void);
 void glasses_shop();
 void magic_hat();
 void crown();
+void snack();
