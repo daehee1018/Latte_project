@@ -26,14 +26,16 @@ void shop()
 	printf("                                       ┃                                   ┃\n");
 	printf("                                       ┃         1. 모자 구매하기          ┃\n");
 	printf("                                       ┃         2. 안경 구매하기          ┃\n");
-	printf("                                       ┃     3. 메인화면으로 돌아가기      ┃\n");
+	printf("                                       ┃           3. 간식 주기            ┃\n");
+	printf("                                       ┃     4. 메인화면으로 돌아가기      ┃\n");
 	printf("                                       ┗━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━┛\n");
 	printf("                                           ▲  원하는 메뉴를 선택하세요 ▲ ");
 	scanf("%d", &selMenu);
 
 	if (selMenu == 1) { system("cls"); hat_shop(); }
 	if (selMenu == 2) { system("cls"); glasses_shop(); }
-	if (selMenu == 3) { system("cls"); title(); }
+	if (selMenu == 3) { system("cls"); snack(); }
+	if (selMenu == 4) { system("cls"); title(); }
 
 
 
@@ -42,6 +44,20 @@ void shop()
 void hat_shop()
 {
 	int selHat;
+	int	currentSnack;
+
+	// 파일에서 이전 점수 읽어오기
+	FILE* file = fopen("score.txt", "r");
+	if (file != NULL) {
+		fscanf(file, "%d", &currentSnack);
+		fclose(file);
+	}
+	else {
+		printf(" 새로운 파일\n");
+		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
+	}
+
+	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	printf("                                       ┃           모자 구매하기           ┃\n");
 	printf("                                       ┃                                   ┃\n");
@@ -59,6 +75,20 @@ void hat_shop()
 void glasses_shop(){
 
 	int buyGlasses;
+	int	currentSnack;
+
+	// 파일에서 이전 점수 읽어오기
+	FILE* file = fopen("score.txt", "r");
+	if (file != NULL) {
+		fscanf(file, "%d", &currentSnack);
+		fclose(file);
+	}
+	else {
+		printf(" 새로운 파일\n");
+		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
+	}
+
+	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
 	wprintf(L"⠀\n");
@@ -89,7 +119,20 @@ void glasses_shop(){
 void magic_hat()
 {
 	int buyHat;
+	int	currentSnack;
 
+	// 파일에서 이전 점수 읽어오기
+	FILE* file = fopen("score.txt", "r");
+	if (file != NULL) {
+		fscanf(file, "%d", &currentSnack);
+		fclose(file);
+	}
+	else {
+		printf(" 새로운 파일\n");
+		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
+	}
+
+	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
 	wprintf(L"⠀\n");
@@ -120,6 +163,20 @@ void magic_hat()
 void crown()
 { 
 	int buyCrown;
+	int	currentSnack;
+
+	// 파일에서 이전 점수 읽어오기
+	FILE* file = fopen("score.txt", "r");
+	if (file != NULL) {
+		fscanf(file, "%d", &currentSnack);
+		fclose(file);
+	}
+	else {
+		printf(" 새로운 파일\n");
+		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
+	}
+
+	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
 	wprintf(L"⠀\n");
@@ -146,3 +203,20 @@ void crown()
 
 }
 
+void snack() {
+	int	currentSnack;
+
+	// 파일에서 이전 점수 읽어오기
+	FILE* file = fopen("score.txt", "r");
+	if (file != NULL) {
+		fscanf(file, "%d", &currentSnack);
+		fclose(file);
+	}
+	else {
+		printf(" 새로운 파일\n");
+		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
+	}
+
+	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("고양이에게 간식 주기\n");
+}
