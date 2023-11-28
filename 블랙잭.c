@@ -639,7 +639,7 @@ void blackjack() {
                         title();
                     }
                 }
-                }
+          
 
             case 2:   // stand  
                 sum_player = 0;
@@ -824,7 +824,6 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
-                    file = fopen("score.txt", "w");
                     if (file != NULL) {
                         fprintf(file, "%d", currentSnack);
                         fclose(file);
