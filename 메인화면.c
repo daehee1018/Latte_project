@@ -1,7 +1,7 @@
 #include "head.h"
 void title() {
 
-    system("mode con cols=100 lines=32 ");
+    system("mode con cols=100 lines=40 ");
     int start_num;
     printf("----------Cat Snack Collection Game----------\n");
     printf("|1. 가위바위보 게임                         |\n");

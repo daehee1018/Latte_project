@@ -4,6 +4,7 @@
 
 char id()
 {
+	system("mode con cols=100 lines=40 ");
 	gotoxy(25, 15);
 	printf("    선택한 고양이의 이름을 지어주세요:    ");
 

@@ -7,6 +7,7 @@
 
 void shop()
 {
+	system("mode con cols=100 lines=40 ");
 	int selMenu, currentSnack;
 
 	// 파일에서 이전 점수 읽어오기

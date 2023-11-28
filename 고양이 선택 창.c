@@ -24,7 +24,7 @@ void cat3() {
 void choice_cat()
 {
 	int selMenu;
-
+	system("mode con cols=100 lines=32 ");
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
 	wprintf(L"⠀\n");

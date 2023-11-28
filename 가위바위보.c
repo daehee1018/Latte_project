@@ -8,8 +8,9 @@
 // testing 3
 
 int rock() {
-    int currentSnack = 0; // 현재 게임에서 획득한 점수
-
+    system("mode con cols=100 lines=40 ");
+    int currentSnack = 0; // 현재 게임에서 획득한 점수system("mode con cols=80 lines=40 ");
+    
     // 파일에서 이전 점수 읽어오기
     FILE* file = fopen("score.txt", "r");
     if (file != NULL) {

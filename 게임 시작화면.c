@@ -6,6 +6,7 @@
 #include <fcntl.h>
 
     int main() {
+        system("mode con cols=100 lines=40 ");
         FILE* file = fopen("score.txt", "r");
    
         if (file == NULL) {
@@ -83,7 +84,6 @@
 
     }
     
-    system("mode con cols=100 lines=32 ");
 	
 
 
