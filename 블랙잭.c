@@ -254,30 +254,7 @@ void blackjack() {
            
                 
                 
-                system("cls");
-                printf("[딜    러] 카드1:%2d  카드2: %d  카드 3 : ??\n", dealer[1], dealer[2]);
-                printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│    %2d   ││    %2d   ││    ??   │\n", dealer[1], dealer[2]);
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("└─────────┘└─────────┘└─────────┘\n");
-                printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
-                printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│    %2d   ││    %2d   ││    %2d   │\n", player[1], player[2], player[3]);
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("└─────────┘└─────────┘└─────────┘\n");
-                printf("[딜러:??  플레이어:%2d]\n",  sum_player);
+            
 
 
 
@@ -290,14 +267,37 @@ void blackjack() {
 
                         for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
                         if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
-                        if (dealer[2] > 10) dealer[2] = 10;         
+                        if (dealer[2] > 10) dealer[2] = 10;
                         if (dealer[3] > 10) dealer[3] = 10;
                         if (dealer[4] > 10) dealer[4] = 10;
                         if (dealer[5] > 10) dealer[5] = 10;
                         if (dealer[6] > 10) dealer[6] = 10;
 
                     } while (sum_dealer < 17);  // 17을 넘을 때까지 계속 뽑기
-                    if (sum_dealer > 17) break;
+                    system("cls");
+                    printf("[딜    러] 카드1:%2d  카드2: %d  카드 3 : ??\n", dealer[1], dealer[2]);
+                    printf("┌─────────┐┌─────────┐┌─────────┐\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│    %2d   ││    %2d   ││    ??   │\n", dealer[1], dealer[2]);
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("└─────────┘└─────────┘└─────────┘\n");
+                    printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
+                    printf("┌─────────┐┌─────────┐┌─────────┐\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│    %2d   ││    %2d   ││    %2d   │\n", player[1], player[2], player[3]);
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("└─────────┘└─────────┘└─────────┘\n");
+                    printf("[딜러:??  플레이어:%2d]\n", sum_player);
                 }
                 
                 else // 딜러 stand

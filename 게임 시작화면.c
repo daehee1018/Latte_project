@@ -15,7 +15,7 @@
                 fclose(File);
             }
             else {
-                printf("score.txt error ");
+                printf("error ");
                 return 1;
             }
         }
