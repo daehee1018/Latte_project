@@ -19,6 +19,7 @@ void blackjack() {
     int stand_dealer = 0;
     int sel_menu, sel_game;
     int i;
+
     // 파일에서 이전 점수 읽어오기
     FILE* file = fopen("score.txt", "r");
     if (file != NULL) {
@@ -94,34 +95,38 @@ void blackjack() {
             sum_player = player[1] + player[2];
             sum_dealer = dealer[1] + dealer[2];
 
-        if (sum_player == 21 && sum_dealer != 21)
-        {
-            printf("☆☆☆ 플레이어 블랙 잭 ☆☆☆\n");
-            currentSnack = currentSnack + (bet_snack * 2);     // 베팅액 2배 +
-            GotoXY(50, 30);
-            printf("현재 간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
-            printf("┏━━┓ \n");
-            printf("┃━━┃ \n");
-            printf("┃  ┃\n");
-            printf("┃츄┃\n");
-            printf("┃  ┃x %d\n", currentSnack);
-            printf("┃르┃\n");
-            printf("┃  ┃\n");
-            printf("┗━━┛\n");
-            printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
-            scanf("%d", &sel_menu);
-            if (sel_menu == 1) {
-                blackjack();
-            }
-            else if (sel_menu == 2) 
+            if (sum_player == 21 && sum_dealer != 21)
+            {
+                printf("☆☆☆ 플레이어 블랙 잭 ☆☆☆\n");
+                currentSnack = currentSnack + (bet_snack * 2);     // 베팅액 2배 +
+                printf("현재 간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
+                printf("┏━━┓ \n");
+                printf("┃━━┃ \n");
+                printf("┃  ┃\n");
+                printf("┃츄┃\n");
+                printf("┃  ┃x %d\n", currentSnack);
+                printf("┃르┃\n");
+                printf("┃  ┃\n");
+                printf("┗━━┛\n");
+                file = fopen("score.txt", "w");
+                if (file != NULL) {
+                    fprintf(file, "%d", currentSnack);
+                    fclose(file);
+                }
+                else {}
+                printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
+                scanf("%d", &sel_menu);
+                if (sel_menu == 1) {
+                    blackjack();
+                }
+                else if (sel_menu == 2) {
                 title();
-            
+            }
         }
         else if (sum_player != 21 && sum_dealer == 21)
         {
             printf("▽▽▽ 딜러 블랙 잭 ▽▽▽\n");
-            currentSnack -= bet_snack;                           // 베팅액 -
-            GotoXY(50, 30);
+            currentSnack -= bet_snack;                           // 베팅액 
             printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack);
             printf("┏━━┓ \n");
             printf("┃━━┃ \n");
@@ -131,18 +136,24 @@ void blackjack() {
             printf("┃르┃\n");
             printf("┃  ┃\n");
             printf("┗━━┛\n");
+            file = fopen("score.txt", "w");
+            if (file != NULL) {
+                fprintf(file, "%d", currentSnack);
+                fclose(file);
+            }
+            else {}
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
                 blackjack();
             }
-            else if (sel_menu == 2)
+            else if (sel_menu == 2) {
                 title();
-
+            }
         }
         else if (sum_player == 21 && sum_dealer == 21)
         {
-            printf("◎◎◎ 플레이어&딜러 블랙 잭 ◎◎◎\n");    
+            printf("◎◎◎ 플레이어&딜러 블랙 잭 ◎◎◎\n");
             printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
             printf("┏━━┓ \n");
             printf("┃━━┃ \n");
@@ -152,15 +163,22 @@ void blackjack() {
             printf("┃르┃\n");
             printf("┃  ┃\n");
             printf("┗━━┛\n");
+            file = fopen("score.txt", "w");
+            if (file != NULL) {
+                fprintf(file, "%d", currentSnack);
+                fclose(file);
+            }
+            else {}
             printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
                 blackjack();
             }
-            else if (sel_menu == 2)
-                title();
-
+            else if (sel_menu == 2) {
+            title();
         }
+        }
+        else{}
         sum_player = 0;
         sum_dealer = 0;
 
@@ -271,6 +289,7 @@ void blackjack() {
                     printf("└─────────┘└─────────┘└─────────┘\n");
                     printf("플레이어 합계: %d\n", sum_player);
                 }
+                
                 else // 딜러 stand
                 {
                     stand_dealer = 1;
@@ -284,7 +303,6 @@ void blackjack() {
                     if (sum_player > 21 && sum_dealer > 21)
                     {
                         printf("◎ 비겼습니다 ◎ (All bust)\n");
-                        GotoXY(50, 30);
                         printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
                         printf("┏━━┓ \n");
                         printf("┃━━┃ \n");
@@ -294,14 +312,20 @@ void blackjack() {
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
+                        file = fopen("score.txt", "w");
+                        if (file != NULL) {
+                            fprintf(file, "%d", currentSnack);
+                            fclose(file);
+                        }
+                        else {}
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
                             blackjack();
                         }
-                        else if (sel_menu == 2)
+                        else if (sel_menu == 2) {
                             title();
-
+                        }
                     }
                     else if (sum_player > 21 && sum_dealer <= 21)
                     {
@@ -316,14 +340,20 @@ void blackjack() {
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
+                        file = fopen("score.txt", "w");
+                        if (file != NULL) {
+                            fprintf(file, "%d", currentSnack);
+                            fclose(file);
+                        }
+                        else {}
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
                             blackjack();
                         }
-                        else if (sel_menu == 2)
+                        else if (sel_menu == 2) {
                             title();
-
+                        }
                     }
                     else if (sum_player <= 21 && sum_dealer > 21)
                     {
@@ -338,20 +368,26 @@ void blackjack() {
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
+                        file = fopen("score.txt", "w");
+                        if (file != NULL) {
+                            fprintf(file, "%d", currentSnack);
+                            fclose(file);
+                        }
+                        else {}
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
                             blackjack();
                         }
-                        else if (sel_menu == 2)
+                        else if (sel_menu == 2) {
                             title();
-
+                        }
                     }
                     else if (sum_dealer > sum_player)
                     {
                         printf("▽ 졌습니다 ▽\n");
                         currentSnack -= bet_snack;   
-                        printf("현재 간식 수 : %d(-%d)", currentSnack, bet_snack);
+                        printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack);
                         printf("┏━━┓ \n");
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
@@ -360,20 +396,26 @@ void blackjack() {
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
+                        file = fopen("score.txt", "w");
+                        if (file != NULL) {
+                            fprintf(file, "%d", currentSnack);
+                            fclose(file);
+                        }
+                        else {}
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
                             blackjack();
                         }
-                        else if (sel_menu == 2)
+                        else if (sel_menu == 2) {
                             title();
-
+                        }
                     }
                     else if (sum_dealer < sum_player)
                     {
                         printf("☆ 이겼습니다 ☆\n");
-                        currentSnack= currentSnack + (bet_snack * 2);
-                        printf("현재  간식 수 : %d(+%d)", currentSnack, bet_snack * 2);
+                        currentSnack = currentSnack + (bet_snack * 2);
+                        printf("현재  간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
                         printf("┏━━┓ \n");
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
@@ -382,14 +424,20 @@ void blackjack() {
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
+                        file = fopen("score.txt", "w");
+                        if (file != NULL) {
+                            fprintf(file, "%d", currentSnack);
+                            fclose(file);
+                        }
+                        else {}
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
                             blackjack();
                         }
-                        else if (sel_menu == 2)
+                        else if (sel_menu == 2) {
                             title();
-
+                    }
                     }
                     else
                     {
@@ -403,17 +451,203 @@ void blackjack() {
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
+                        if (file != NULL) {
+                            fprintf(file, "%d", currentSnack);
+                            fclose(file);
+                        }
+                        else {}
                         printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                         scanf("%d", &sel_menu);
                         if (sel_menu == 1) {
                             blackjack();
                         }
-                        else if (sel_menu == 2)
+                        else if (sel_menu == 2) {
                             title();
-
+                        }
+                    }
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
                     }
                 }
-                break;
+
+                stand_dealer = 1;
+                printf("딜러 stand\n");
+                sum_player = 0;
+                sum_dealer = 0;
+                for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
+                for (i = 1; i <= player_index; i++) sum_player += player[i];
+                printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
+
+                if (sum_player > 21 && sum_dealer > 21)
+                {
+                    printf("◎ 비겼습니다 ◎ (All bust)\n");
+                    printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
+                    printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
+                    scanf("%d", &sel_menu);
+                    if (sel_menu == 1) {
+                        blackjack();
+                    }
+                    else if (sel_menu == 2) {
+                        title();
+                    }
+                }
+                else if (sum_player > 21 && sum_dealer <= 21)
+                {
+                    printf("▽ 졌습니다 ▽ (Player bust)\n");
+                    currentSnack -= bet_snack;
+                    printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
+                    printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
+                    scanf("%d", &sel_menu);
+                    if (sel_menu == 1) {
+                        blackjack();
+                    }
+                    else if (sel_menu == 2) {
+                        title();
+                    }
+                }
+                else if (sum_player <= 21 && sum_dealer > 21)
+                {
+                    printf("☆ 이겼습니다 ☆ (Dealer bust)\n");
+                    currentSnack = currentSnack + (bet_snack * 2);
+                    printf("현재 간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
+                    printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
+                    scanf("%d", &sel_menu);
+                    if (sel_menu == 1) {
+                        blackjack();
+                    }
+                    else if (sel_menu == 2) {
+                        title();
+                    }
+                }
+                else if (sum_dealer > sum_player)
+                {
+                    printf("▽ 졌습니다 ▽\n");
+                    currentSnack -= bet_snack;
+                    printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
+                    printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
+                    scanf("%d", &sel_menu);
+                    if (sel_menu == 1) {
+                        blackjack();
+                    }
+                    else if (sel_menu == 2) {
+                        title();
+                    }
+                }
+                else if (sum_dealer < sum_player)
+                {
+                    printf("☆ 이겼습니다 ☆\n");
+                    currentSnack = currentSnack + (bet_snack * 2);
+                    printf("현재  간식 수 : %d(+%d)\n", currentSnack, bet_snack * 2);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
+                    file = fopen("score.txt", "w");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
+                    printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
+                    scanf("%d", &sel_menu);
+                    if (sel_menu == 1) {
+                        blackjack();
+                    }
+                    else if (sel_menu == 2) {
+                        title();
+                    }
+                }
+                else
+                {
+                    printf("◎ 비겼습니다 ◎\n");
+                    printf("현재 간식 수 : %d(+%d)", currentSnack, 0);
+                    printf("┏━━┓ \n");
+                    printf("┃━━┃ \n");
+                    printf("┃  ┃\n");
+                    printf("┃츄┃\n");
+                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃르┃\n");
+                    printf("┃  ┃\n");
+                    printf("┗━━┛\n");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
+                    printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
+                    scanf("%d", &sel_menu);
+                    if (sel_menu == 1) {
+                        blackjack();
+                    }
+                    else if (sel_menu == 2) {
+                        title();
+                    }
+                }
+                if (file != NULL) {
+                    fprintf(file, "%d", currentSnack);
+                    fclose(file);
+                }
 
             case 2:   // stand  
                 sum_player = 0;
@@ -448,7 +682,7 @@ void blackjack() {
 
                 if (sum_dealer > 21 && sum_player > 21)
                 {
-                    printf("◎ 비겼습니다 ◎ (All bust)\n");  
+                    printf("◎ 비겼습니다 ◎ (All bust)\n");
                     printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
                     printf("┏━━┓ \n");
                     printf("┃━━┃ \n");
@@ -458,14 +692,19 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
                         blackjack();
                     }
-                    else if (sel_menu == 2)
-                        title();
-
+                    else if (sel_menu == 2) {
+                    title();
+                }
                 }
                 else if (sum_player > 21 && sum_dealer <= 21)
                 {
@@ -481,14 +720,19 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
                         blackjack();
                     }
-                    else if (sel_menu == 2)
+                    else if (sel_menu == 2) {
                         title();
-
+                    }
                 }
                 else if (sum_player <= 21 && sum_dealer > 21)
                 {
@@ -503,14 +747,19 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
-                    if (sel_menu == 1) 
+                    if (sel_menu == 1) {
                         blackjack();
-                    
-                    else if (sel_menu == 2)
+                    }
+                    else if (sel_menu == 2) {
                         title();
-
+                    }
                 }
                 else if (sum_dealer > sum_player)
                 {
@@ -525,14 +774,19 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
                      printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
             scanf("%d", &sel_menu);
             if (sel_menu == 1) {
                 blackjack();
             }
-            else if (sel_menu == 2) 
+            else if (sel_menu == 2) {
                 title();
-            
+            }
                 }
                 else if (sum_dealer < sum_player)
                 {
@@ -547,14 +801,19 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
                         blackjack();
                     }
-                    else if (sel_menu == 2)
+                    else if (sel_menu == 2) {
                         title();
-
+                    }
                 }
                 else
                 {
@@ -568,29 +827,33 @@ void blackjack() {
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
+                    if (file != NULL) {
+                        fprintf(file, "%d", currentSnack);
+                        fclose(file);
+                    }
+                    else {}
                     printf("계속 진행 [1], 메인화면으로 돌아가기[2]  >");
                     scanf("%d", &sel_menu);
                     if (sel_menu == 1) {
                         blackjack();
                     }
-                    else if (sel_menu == 2)
+                    else if (sel_menu == 2) {
                         title();
-
+                    }
                 }
-                break;
+                
          
             default:
                 break;
             }
             if (sel_game == 2) {
                 system("pause"); title();
-                break;
                
             }  // stand일 경우 loop break
                 if (stand_dealer == 1) // dealer stand일 경우 loop break;
                 {
                     stand_dealer = 0;
-                    blackjack();
+                    break;
                 }
             }
             break;
