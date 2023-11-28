@@ -2,6 +2,7 @@
 #include "head.h"
 #define _CRT_SECURE_NO_WARNINGS
 #include <conio.h>
+#include <windows.h>
 void GotoXY(int x, int y)
 {
     COORD Pos;
@@ -883,7 +884,24 @@ void blackjack() {
         system("pause");
     }
 }
+void explain_blackjack() {
+    printf("플레이어는 카드를 받기 전에 베팅을 합니다\n.");
+    printf("딜러의 첫 번째 카드를 제외한 모든 카드는 공개됩니다.\n");
+    printf("  에이스는 1점 또는 11점으로 계산할 수 있고, J, Q, K는 각각 10점입니다..\n");
+    printf("처음 2장의 카드 합이 21점이면 '블랙잭'으로, 베팅액의 2배를 받습니다..\n");
+    printf(" 딜러가 '블랙잭'인 경우 플레이어는 베팅액의 2배를 잃습니다.\n");
+    printf("딜러와 플레이어가 모두 '블랙잭'인 경우 무승부로 베팅액은 돌려받습니다.\n.");
+    printf(" 플레이어는 21점에 가까워지기 위해 카드를 추가로 받거나 현재 카드로 멈출 수 있습니다.\n");
+    printf("  딜러는 플레이어 이후에 카드를 추가할지 여부를 결정합니다.\n");
+    printf("딜러의 점수가 17 미만이면 1장의 카드를 더 뽑고, 17 이상이면 추가로 카드를 뽑지 않습니다.\n");
+    printf("  21점을 초과하면 점수가 0점으로 처리됩니다.\n");
 
+    printf("블랙잭으로 돌아가려면 아무 키나 입력해주세요");
+    _getch();
+    system("cls"); start_blackjack();
+}
+        
+ 
 void start_blackjack() {
     int menu;
     printf("_____________________________________________________________\n");
@@ -895,6 +913,9 @@ void start_blackjack() {
     scanf("%d", &menu);
     if (menu == 1) {
         system("cls");  blackjack();
+    }
+    else if (menu == 2) {
+        system("cls"); explain_blackjack();
     }
 }
 /* printf("┏━━┓ \n");
