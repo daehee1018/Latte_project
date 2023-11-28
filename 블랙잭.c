@@ -250,19 +250,25 @@ void blackjack() {
                 }
                 if (sum_dealer < 17)  // 딜러의 이전카드까지의 합이 17미만인 경우 카드 하나 더
                 {
-                    dealer[++dealer_index] = rand() % 13 + 1;
-                
-                    sum_dealer = 0;
+                    do {
+                        dealer[++dealer_index] = rand() % 13 + 1;
 
-                    for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
-                    if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
-                    if (dealer[2] > 10) dealer[2] = 10;
-                    if (player[1] > 10) player[1] = 10;
-                    if (player[2] > 10) player[2] = 10;
-                    if (dealer[3] > 10) dealer[3] = 10;
-                    if (dealer[4] > 10) dealer[4] = 10;
-                    if (player[3] > 10) player[3] = 10;
-                    if (player[4] > 10) player[4] = 10;
+                        sum_dealer = 0;
+
+                        for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
+                        if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
+                        if (dealer[2] > 10) dealer[2] = 10;
+                        if (player[1] > 10) player[1] = 10;
+                        if (player[2] > 10) player[2] = 10;
+                        if (dealer[3] > 10) dealer[3] = 10;
+                        if (dealer[4] > 10) dealer[4] = 10;
+                        if (player[3] > 10) player[3] = 10;
+                        if (player[4] > 10) player[4] = 10;
+                        if (dealer[5] > 10) dealer[5] = 10;
+                        if (dealer[6] > 10) dealer[6] = 10;
+                        if (player[5] > 10) player[5] = 10;
+                        if (player[6] > 10) player[6] = 10;
+                    } while (sum_dealer < 17);  // 17을 넘을 때까지 계속 뽑기
                     system("cls");
                     printf("[딜    러] 카드1:%2d  카드2: %d  카드 3 : ??\n", dealer[1], dealer[2]);
                     printf("┌─────────┐┌─────────┐┌─────────┐\n");
@@ -298,8 +304,36 @@ void blackjack() {
                     sum_dealer = 0;
                     for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
                     for (i = 1; i <= player_index; i++) sum_player += player[i];
+                    system("cls");
+                    printf("[딜    러] 카드1:%2d  카드2: %d  카드 3 : ??\n", dealer[1], dealer[2]);
+                    printf("┌─────────┐┌─────────┐┌─────────┐\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│    %2d   ││    %2d   ││    ??   │\n", dealer[1], dealer[2]);
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("└─────────┘└─────────┘└─────────┘\n");
+                    printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
+                    printf("┌─────────┐┌─────────┐┌─────────┐\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│    %2d   ││    %2d   ││    %2d   │\n", player[1], player[2], player[3]);
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("│         ││         ││         │\n");
+                    printf("└─────────┘└─────────┘└─────────┘\n");
                     printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
-
+                    if (sum_player < 21) {
+                     printf("1.Hit 2.Stand\n");
+                     printf("선택하세요 > "); 
+                     scanf("%d", &sel_game); 
+                  }
+                    if(sel_game == 2){
                     if (sum_player > 21 && sum_dealer > 21)
                     {
                         printf("◎ 비겼습니다 ◎ (All bust)\n");
@@ -442,7 +476,7 @@ void blackjack() {
                     else
                     {
                         printf("◎ 비겼습니다 ◎\n");
-                        printf("현재 간식 수 : %d(+%d)", currentSnack, 0);
+                        printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
                         printf("┏━━┓ \n");
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
@@ -466,12 +500,8 @@ void blackjack() {
                             title();
                         }
                     }
-                    if (file != NULL) {
-                        fprintf(file, "%d", currentSnack);
-                        fclose(file);
-                    }
                 }
-
+                }
   
                 if (sum_player > 21 && sum_dealer > 21)
                 {
@@ -615,7 +645,7 @@ void blackjack() {
                 else
                 {
                     printf("◎ 비겼습니다 ◎\n");
-                    printf("현재 간식 수 : %d(+%d)", currentSnack, 0);
+                    printf("현재 간식 수 : %d(+%d)\n", currentSnack, 0);
                     printf("┏━━┓ \n");
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
@@ -884,7 +914,7 @@ void explain_blackjack() {
     printf("\t-처음 2장의 카드 합이 21점이면 '블랙잭'으로, 베팅액의 2배를 받습니다..\n");
     printf("\t-딜러가 '블랙잭'인 경우 플레이어는 베팅액의 2배를 잃습니다.\n");
     printf("\t-딜러와 플레이어가 모두 '블랙잭'인 경우 무승부로 베팅액은 돌려받습니다.\n.");
-    printf("\t-플레이어는 21점에 가까워지기 위해 카드를 추가로 받거나 현재 카드로 멈출 수 있습니다.\n");
+    printf("\t-플레이어는 21점에 가까워지기 위해 카드를 추가로 받거나(2번 까지) 현재 카드로 멈출 수 있습니다.\n");
     printf("\t-딜러는 플레이어 이후에 카드를 추가할지 여부를 결정합니다.\n");
     printf("\t-딜러의 점수가 17 미만이면 1장의 카드를 더 뽑고, 17 이상이면 추가로 카드를 뽑지 않습니다.\n");
     printf("\t-21점을 초과하면 점수가 0점으로 처리됩니다.\n");
