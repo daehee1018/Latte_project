@@ -74,7 +74,7 @@ void hat_shop()
 
 void glasses_shop(){
 
-	int buyGlasses;
+	char buyGlasses;
 	int	currentSnack;
 
 	// 파일에서 이전 점수 읽어오기
@@ -109,18 +109,20 @@ void glasses_shop(){
 	wprintf(L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\n");
 
 	_setmode(_fileno(stdout), _O_TEXT);
-	printf("                       범생이 안경 가격: 간식 500개\n\n");
-	printf("                  안경 구매를 진행하겠습니까? (Y/N) : "); 
+	printf("                     범생이 안경 가격: 간식 500개\n\n");
+	printf("                   안경 구매를 진행하겠습니까? (Y/N) : "); 
 	scanf(" %c", &buyGlasses);
 
 	if (buyGlasses == 'y' || buyGlasses == 'Y') {
 		if (currentSnack >= 500) {
 			currentSnack -= 500;
-			printf("안경을 성공적으로 구매하였습니다!\n");
+			printf("\n\n");
+			printf("                   안경을 성공적으로 구매하였습니다!\n");
 		}
 		else {
-			printf("간식이 부족하여 안경을 구매할 수 없습니다.\n"); 
-			printf("아무 키나 눌러 상점 메뉴로 돌아가기\n");
+			printf("\n\n");
+			printf("                   간식이 부족하여 안경을 구매할 수 없습니다.\n\n"); 
+			printf("                   아무 키나 눌러 상점 메뉴로 돌아가기\n");
 			_getch();
 			system("cls"); shop();
 		}
@@ -130,7 +132,8 @@ void glasses_shop(){
 		shop();
 	}
 	else {
-		printf("유효하지 않은 입력입니다.\n");
+		printf("\n\n");
+		printf("                   유효하지 않은 입력입니다.\n");
 	}
 
 
@@ -142,7 +145,7 @@ void glasses_shop(){
 
 void magic_hat()
 {
-	int buyHat;
+	char buyHat;
 	int	currentSnack;
 
 	// 파일에서 이전 점수 읽어오기
@@ -181,13 +184,36 @@ void magic_hat()
 	printf("                마법사 모자 구매를 진행하겠습니까? (Y/N) : ");
 	scanf(" %c", &buyHat);
 	
+	if (buyHat == 'y' || buyHat == 'Y') {
+		if (currentSnack >= 700) {
+			currentSnack -= 700;
+			printf("\n\n");
+			printf("                   마법사 모자를 성공적으로 구매하였습니다!\n");
+		}
+		else {
+			printf("\n\n");
+			printf("                   간식이 부족하여 마법사 모자을 구매할 수 없습니다.\n\n");
+			printf("                   아무 키나 눌러 상점 메뉴로 돌아가기\n");
+			_getch();
+			system("cls"); shop();
+		}
+	}
+	else if (buyHat == 'n' || buyHat == 'N') {
+		system("cls");
+		shop();
+	}
+	else {
+		printf("\n\n");
+		printf("                   유효하지 않은 입력입니다.\n");
+	}
+
 
 }
 		
 
 void crown()
 { 
-	int buyCrown;
+	char buyCrown;
 	int	currentSnack;
 
 	// 파일에서 이전 점수 읽어오기
@@ -225,6 +251,31 @@ void crown()
 	printf("                       왕관 가격: 간식 999개\n\n");
 	printf("                왕관 구매를 진행하겠습니까? (Y/N) : ");
 	scanf(" %c", &buyCrown);
+
+	if (buyCrown == 'y' || buyCrown == 'Y') {
+		if (currentSnack >= 999) {
+			currentSnack -= 999;
+			printf("\n\n");
+			printf("                   왕관을 성공적으로 구매하였습니다!\n");
+		}
+		else {
+			printf("\n\n");
+			printf("                   간식이 부족하여 왕관을 구매할 수 없습니다.\n\n");
+			printf("                   아무 키나 눌러 상점 메뉴로 돌아가기\n");
+			_getch();
+			system("cls"); shop();
+		}
+	}
+	else if (buyCrown == 'n' || buyCrown == 'N') {
+		system("cls");
+		shop();
+	}
+	else {
+		printf("\n\n");
+		printf("                   유효하지 않은 입력입니다.\n");
+	}
+
+
 
 }
 
