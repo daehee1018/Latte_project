@@ -63,7 +63,7 @@ void choice_cat()
 	printf("                                             ▲  고양이를 선택하세요 ▲ ");
 	scanf("%d", &selMenu);
 
-	if (selMenu == 1) { system("cls");  cat1(); }
+	if (selMenu == 1) { system("cls"); cat1(); }
 	if (selMenu == 2) { system("cls"); cat2(); }
 	if (selMenu == 3) { system("cls"); cat3(); }
 
