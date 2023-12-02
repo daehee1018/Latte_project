@@ -1,8 +1,13 @@
-﻿
-#include "head.h"
+﻿#include "head.h"
 #define _CRT_SECURE_NO_WARNINGS
 #include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <wchar.h>
+#include <locale.h>
 #include <windows.h>
+#include <time.h>
+#include <stdbool.h>
 
 void GotoXY(int x, int y)
 {
@@ -11,19 +16,20 @@ void GotoXY(int x, int y)
     Pos.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
+
 void blackjack() {
-
     system("mode con cols=100 lines=40 ");
-
+    wchar_t dealer_suit[3] = { L'\0', L'\0', L'\0' }; // 딜러 카드 무늬 초기화
+    wchar_t player_suit[3] = { L'\0', L'\0', L'\0' }; // 플레이어 카드 무늬 초기화
     int currentSnack = 0;
     int bet_snack;
     int dealer[9], player[9];
     int sum_player, sum_dealer;
     int player_index, dealer_index;
     int stand_dealer = 0;
-    int sel_menu, sel_game, re;
+    int sel_menu, sel_game;
     int i;
-   
+
     // 파일에서 이전 점수 읽어오기
     FILE* file = fopen("score.txt", "r");
     if (file != NULL) {
@@ -64,9 +70,39 @@ void blackjack() {
             player_index = 2;
             dealer_index = 2;
 
+            /*
+            // 카드 뽑기
+            srand((unsigned)time(NULL));
+            printf("%lc,  %lc, %lc \n", player_suit[0], player_suit[1], player_suit[2]);
+            printf("%lc,  %lc, %lc \n", dealer_suit[0], dealer_suit[1], dealer_suit[2]);
+            wchar_t p_suits[8] = { L'\u2660', L'\u2666', L'\u2665', L'\u2663', L'\u2660', L'\u2666', L'\u2665', L'\u2663' };
+            wchar_t d_suits[8] = { L'\u2660', L'\u2666', L'\u2665', L'\u2663', L'\u2660', L'\u2666', L'\u2665', L'\u2663' };
+         // 카드 뽑기 로직 수정
+            for (int i = 0; i < 3; i++) {  // i가 4보다 작을 때까지만 실행
+                int index = rand() % 8;
+                dealer_suit[i] = d_suits[index];
+            }
+            for (int i = 0; i < 3; i++) {  // i가 4보다 작을 때까지만 실행
+                int index = rand() % 8;
+                player_suit[i] = p_suits[index];
+            }   
+         */
 
             // 카드 뽑기
             srand((unsigned)time(NULL));
+            wchar_t p_suits[8] = { L'\u2660',L'\u25C6', L'\u2665', L'\u2663', L'\u2660', L'\u25C6', L'\u2665', L'\u2663' };
+            wchar_t d_suits[8] = { L'\u2660',L'\u25C6', L'\u2665', L'\u2663', L'\u2660', L'\u25C6', L'\u2665', L'\u2663' };
+            // 카드 뽑기 로직 수정
+            for (int i = 0; i < 3; i++) {
+             
+                int  index = rand() % 8;
+               dealer_suit[i] = d_suits[index];
+            }
+            for (int i = 0; i < 3; i++) {
+                int index;
+                index = rand() % 8;
+               player_suit[i] = p_suits[index];
+            }
 
             dealer[1] = rand() % 13 + 1;
             dealer[2] = rand() % 13 + 1;
@@ -189,27 +225,28 @@ void blackjack() {
 
         sum_player = player[1] + player[2];
         sum_dealer = dealer[1] + dealer[2];
+        
         printf("[딜    러] 카드1:%2d  카드2: ?\n", dealer[1]);
         printf("┌─────────┐┌─────────┐\n");
-        printf("│         ││         │\n");
+        printf("│%lc       ││%lc       │\n", dealer_suit[0], dealer_suit[1]);
         printf("│         ││         │\n");
         printf("│         ││         │\n");
         printf("│         ││         │\n");
         printf("│    %2d   ││    ??   │\n", dealer[1]);
         printf("│         ││         │\n");
         printf("│         ││         │\n");
-        printf("│         ││         │\n");
+       printf("│       %lc││       %lc│\n", dealer_suit[0], dealer_suit[1]);
         printf("└─────────┘└─────────┘\n");
         printf("[플레이어] 카드1:%2d  카드2:%2d\n", player[1], player[2]);
         printf("┌─────────┐┌─────────┐\n");
-        printf("│         ││         │\n");
+        printf("│%lc       ││%lc       │\n", player_suit[0], player_suit[1]);
         printf("│         ││         │\n");
         printf("│         ││         │\n");
         printf("│         ││         │\n");
         printf("│    %2d   ││    %2d   │\n", player[1], player[2]);
         printf("│         ││         │\n");
         printf("│         ││         │\n");
-        printf("│         ││         │\n");
+        printf("│       %lc││       %lc│\n", player_suit[0], player_suit[1]);
         printf("└─────────┘└─────────┘\n");
         printf("[딜러:?? 플레이어:%2d]\n", sum_player);
       
@@ -274,7 +311,6 @@ void blackjack() {
                 else // 딜러 stand
                 {
                     stand_dealer = 1;
-                    printf("딜러 stand\n");
                     sum_player = 0;
                     sum_dealer = 0;
                     for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
@@ -282,28 +318,28 @@ void blackjack() {
                     system("cls");
                     printf("[딜    러] 카드1:%2d  카드2: %d \n", dealer[1], dealer[2]);
                     printf("┌─────────┐┌─────────┐\n");
-                    printf("│         ││         │\n");
+                    printf("│%lc       ││%lc       │\n", dealer_suit[0], dealer_suit[1]);
                     printf("│         ││         │\n");
                     printf("│         ││         │\n");
                     printf("│         ││         │\n");
                     printf("│    %2d   ││    %2d   │\n", dealer[1], dealer[2]);
                     printf("│         ││         │\n");
                     printf("│         ││         │\n");
-                    printf("│         ││         │\n");
+                    printf("│       %lc││       %lc│\n", dealer_suit[0], dealer_suit[1]);
                     printf("└─────────┘└─────────┘\n");
                     printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
                     printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                    printf("│         ││         ││         │\n");
+                    printf("│%lc       ││%lc       ││%lc       │\n", player_suit[0], player_suit[1], player_suit[2]);
                     printf("│         ││         ││         │\n");
                     printf("│         ││         ││         │\n");
                     printf("│         ││         ││         │\n");
                     printf("│    %2d   ││    %2d   ││    %2d   │\n", player[1], player[2], player[3]);
                     printf("│         ││         ││         │\n");
                     printf("│         ││         ││         │\n");
-                    printf("│         ││         ││         │\n");
+                    printf("│       %lc││       %lc││       %lc│\n", player_suit[0], player_suit[1], player_suit[2]);
                     printf("└─────────┘└─────────┘└─────────┘\n");
                     printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
-
+                    printf("딜러 stand\n");
                     if (sum_player > 21 && sum_dealer > 21)
                     {
                         printf("◎ 비겼습니다 ◎ (All bust)\n");
@@ -473,27 +509,27 @@ void blackjack() {
                 }
                 sum_dealer = dealer[1] + dealer[2] + dealer[3];
                 system("cls");
-                printf("[딜    러] 카드1:%2d  카드2: %2d  카드 3 : %2d\n", dealer[1], dealer[2],dealer[3]);
+                printf("[딜    러] 카드1:%2d  카드2: %2d  카드3 : %2d\n", dealer[1], dealer[2],dealer[3]);
                 printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                printf("│         ││         ││         │\n");
+                printf("│%lc       ││%lc       ││%lc       │\n", dealer_suit[0], dealer_suit[1], dealer_suit[2]);
                 printf("│         ││         ││         │\n");
                 printf("│         ││         ││         │\n");
                 printf("│         ││         ││         │\n");
                 printf("│    %2d   ││    %2d   ││    %2d   │\n", dealer[1], dealer[2], dealer[3]);
                 printf("│         ││         ││         │\n");
                 printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
+                printf("│       %lc││       %lc││       %lc│\n", dealer_suit[0], dealer_suit[1], dealer_suit[2]);
                 printf("└─────────┘└─────────┘└─────────┘\n");
                 printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
                 printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                printf("│         ││         ││         │\n");
+                printf("│%lc       ││%lc       ││%lc       │\n", player_suit[0], player_suit[1], player_suit[2]);
                 printf("│         ││         ││         │\n");
                 printf("│         ││         ││         │\n");
                 printf("│         ││         ││         │\n");
                 printf("│    %2d   ││    %2d   ││    %2d   │\n", player[1], player[2], player[3]);
                 printf("│         ││         ││         │\n");
                 printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
+                printf("│       %lc││       %lc││       %lc│\n", player_suit[0], player_suit[1], player_suit[2]);
                 printf("└─────────┘└─────────┘└─────────┘\n");
                 printf("[딜러:%2d  플레이어:%2d]\n",sum_dealer, sum_player);
                 
@@ -697,25 +733,25 @@ void blackjack() {
                 system("cls");
                 printf("[딜    러] 카드1:%2d  카드2: %2d\n", dealer[1], dealer[2]);
                 printf("┌─────────┐┌─────────┐\n");
-                printf("│         ││         │\n");
+                printf("│%lc       ││%lc       │\n", dealer_suit[0], dealer_suit[1]);
                 printf("│         ││         │\n");
                 printf("│         ││         │\n");
                 printf("│         ││         │\n");
                 printf("│    %2d   ││    %2d   │\n", dealer[1], dealer[2]);
                 printf("│         ││         │\n");
                 printf("│         ││         │\n");
-                printf("│         ││         │\n");
+                printf("│       %lc││       %lc│\n", dealer_suit[0], dealer_suit[1]);
                 printf("└─────────┘└─────────┘\n");
                 printf("[플레이어] 카드1:%2d  카드2:%2d\n", player[1], player[2]);
                 printf("┌─────────┐┌─────────┐\n");
-                printf("│         ││         │\n");
+                printf("│%lc       ││%lc       │\n", player_suit[0], player_suit[1]);
                 printf("│         ││         │\n");
                 printf("│         ││         │\n");
                 printf("│         ││         │\n");
                 printf("│    %2d   ││    %2d   │\n", player[1], player[2]);
                 printf("│         ││         │\n");
                 printf("│         ││         │\n");
-                printf("│         ││         │\n");
+                printf("│       %lc││       %lc│\n", player_suit[0], player_suit[1]);
                 printf("└─────────┘└─────────┘\n");
                 printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
 
