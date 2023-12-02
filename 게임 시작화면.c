@@ -77,7 +77,7 @@
  
 
 
-    _setmode(_fileno(stdout), _O_TEXT);\
+    _setmode(_fileno(stdout), _O_TEXT);
         while (1) {
     printf("\n");
     printf("\n");

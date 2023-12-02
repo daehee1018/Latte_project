@@ -38,7 +38,7 @@ void shop()
 	}
 
 	printf("\n\n");
-	printf("                                                                                 현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	printf("                                       ┃           상점 메뉴 선택          ┃\n");
 	printf("                                       ┃                                   ┃\n");
@@ -75,7 +75,7 @@ void hat_shop()
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
 
-	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	printf("                                       ┃           모자 구매하기           ┃\n");
 	printf("                                       ┃                                   ┃\n");
@@ -106,7 +106,7 @@ void glasses_shop(){
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
 	
-	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
 	wprintf(L"⠀\n");
@@ -177,7 +177,7 @@ void magic_hat()
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
 
-	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
 	wprintf(L"⠀\n");
@@ -245,7 +245,7 @@ void crown()
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
 
-	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
 	wprintf(L"⠀\n");
@@ -311,6 +311,6 @@ void snack() {
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
 
-	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("고양이에게 간식 주기\n");
 }

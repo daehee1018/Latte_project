@@ -11,7 +11,7 @@ void choice() {
         fclose(file);
 
         // 사용자에게 점수 초기화 여부 묻기
-        printf("\t\t\t\t\t\t현재 간식 수 : %d개\n", currentSnack);
+        printf("현재 간식 수 : %d개\n", currentSnack);
         printf("점수를 초기화 하시겠습니까? (Y/N):  ");
         scanf("  %c", &choice);
 
@@ -34,4 +34,3 @@ void choice() {
     }
 }
       
-       
