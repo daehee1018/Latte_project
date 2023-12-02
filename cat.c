@@ -1,4 +1,5 @@
-﻿#include "head.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include "head.h"
 #include <stdio.h>
 #include <wchar.h>
 #include <io.h>
@@ -6,8 +7,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <windows.h>
-#include <locale.h> 
-
+#include <locale.h>
 
 void cat1() {
     FILE* filePointer;
@@ -15,7 +15,7 @@ void cat1() {
 
     // 파일에 유니코드 입력
     setlocale(LC_CTYPE, "");
-    setmode(_fileno(stdout), _O_U16TEXT);
+    _setmode(_fileno(stdout), _O_U16TEXT);
     SetConsoleOutputCP(CP_UTF8);
 
 
@@ -74,7 +74,7 @@ void cat2() {
 
     // 파일에 유니코드 입력
     setlocale(LC_CTYPE, "");
-    setmode(_fileno(stdout), _O_U16TEXT);
+    _setmode(_fileno(stdout), _O_U16TEXT);
     SetConsoleOutputCP(CP_UTF8);
 
 
@@ -135,7 +135,7 @@ void cat3() {
 
     // 파일에 유니코드 입력
     setlocale(LC_CTYPE, "");
-    setmode(_fileno(stdout), _O_U16TEXT);
+    _setmode(_fileno(stdout), _O_U16TEXT);
     SetConsoleOutputCP(CP_UTF8);
 
 
