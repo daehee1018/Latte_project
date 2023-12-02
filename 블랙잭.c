@@ -112,7 +112,7 @@ void blackjack() {
                 printf("┃━━┃ \n");
                 printf("┃  ┃\n");
                 printf("┃츄┃\n");
-                printf("┃  ┃x %d\n", currentSnack);
+                printf("┃  ┃+ %d\n", bet_snack * 2);
                 printf("┃르┃\n");
                 printf("┃  ┃\n");
                 printf("┗━━┛\n");
@@ -140,7 +140,7 @@ void blackjack() {
             printf("┃━━┃ \n");
             printf("┃  ┃\n");
             printf("┃츄┃\n");
-            printf("┃  ┃x %d\n", currentSnack);
+            printf("┃  ┃- %d\n", bet_snack);
             printf("┃르┃\n");
             printf("┃  ┃\n");
             printf("┗━━┛\n");
@@ -167,7 +167,7 @@ void blackjack() {
             printf("┃━━┃ \n");
             printf("┃  ┃\n");
             printf("┃츄┃\n");
-            printf("┃  ┃x %d\n", currentSnack);
+            printf("┃  ┃+ %d\n", 0);
             printf("┃르┃\n");
             printf("┃  ┃\n");
             printf("┗━━┛\n");
@@ -302,7 +302,7 @@ void blackjack() {
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
                         printf("┃츄┃\n");
-                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃  ┃+ %d\n", 0);
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
@@ -330,7 +330,7 @@ void blackjack() {
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
                         printf("┃츄┃\n");
-                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃  ┃- %d\n", bet_snack);
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
@@ -358,7 +358,7 @@ void blackjack() {
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
                         printf("┃츄┃\n");
-                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃  ┃+ %d\n", bet_snack*2);
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
@@ -386,7 +386,7 @@ void blackjack() {
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
                         printf("┃츄┃\n");
-                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃  ┃- %d\n", bet_snack);
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
@@ -414,7 +414,7 @@ void blackjack() {
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
                         printf("┃츄┃\n");
-                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃  ┃+ %d\n", bet_snack *2);
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
@@ -441,7 +441,7 @@ void blackjack() {
                         printf("┃━━┃ \n");
                         printf("┃  ┃\n");
                         printf("┃츄┃\n");
-                        printf("┃  ┃x %d\n", currentSnack);
+                        printf("┃  ┃+ %d\n", 0);
                         printf("┃르┃\n");
                         printf("┃  ┃\n");
                         printf("┗━━┛\n");
@@ -498,7 +498,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", 0);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -526,7 +526,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃- %d\n", bet_snack);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -554,7 +554,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", bet_snack * 2);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -582,7 +582,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃- %d\n", bet_snack);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -610,7 +610,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", bet_snack*2);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -637,7 +637,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", 0);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -696,7 +696,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", 0);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -725,7 +725,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃- %d\n", bet_snack);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -753,7 +753,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", bet_snack * 2);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -781,7 +781,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃- %d\n", bet_snack);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -809,7 +809,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", bet_snack*2);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -836,7 +836,7 @@ void blackjack() {
                     printf("┃━━┃ \n");
                     printf("┃  ┃\n");
                     printf("┃츄┃\n");
-                    printf("┃  ┃x %d\n", currentSnack);
+                    printf("┃  ┃+ %d\n", 0);
                     printf("┃르┃\n");
                     printf("┃  ┃\n");
                     printf("┗━━┛\n");
@@ -873,7 +873,7 @@ void blackjack() {
             printf("┃━━┃ \n");
             printf("┃  ┃\n");
             printf("┃츄┃\n");
-            printf("┃  ┃x %d\n", currentSnack);
+            printf("┃  ┃= %d\n", currentSnack);
             printf("┃르┃\n");
             printf("┃  ┃\n");
             printf("┗━━┛\n");
