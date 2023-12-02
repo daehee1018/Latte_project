@@ -10,9 +10,15 @@
 
 void id()
 {
+<<<<<<< HEAD
 
     gotoxy(25, 15);
     printf("    선택한 고양이의 이름을 지어주세요:    ");
+=======
+	system("mode con cols=100 lines=40 ");
+	gotoxy(25, 15);
+	printf("    선택한 고양이의 이름을 지어주세요:    ");
+>>>>>>> 98e4b11818aa979d91180c881864f37f655ea1fe
 
 
     getchar();

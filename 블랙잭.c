@@ -3,6 +3,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <conio.h>
 #include <windows.h>
+
 void GotoXY(int x, int y)
 {
     COORD Pos;
@@ -11,7 +12,9 @@ void GotoXY(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 void blackjack() {
-    
+
+    system("mode con cols=100 lines=40 ");
+
     int currentSnack = 0;
     int bet_snack;
     int dealer[9], player[9];
@@ -74,10 +77,7 @@ void blackjack() {
             if (dealer[2] > 10) dealer[2] = 10;
             if (player[1] > 10) player[1] = 10;
             if (player[2] > 10) player[2] = 10;
-            if (dealer[3] > 10) dealer[3] = 10;
-            if (dealer[4] > 10) dealer[4] = 10;
-            if (player[3] > 10) player[3] = 10;
-            if (player[4] > 10) player[4] = 10;
+         
 
             if (dealer[1] == 1 && dealer[2] == 1) { dealer[1] = 11; dealer[2] = 1; }  // 두장 모두 에이스
             else if (dealer[1] == 1) { dealer[1] = 11; }
@@ -186,10 +186,7 @@ void blackjack() {
         if (dealer[2] > 10) dealer[2] = 10;
         if (player[1] > 10) player[1] = 10;
         if (player[2] > 10) player[2] = 10;
-        if (dealer[3] > 10) dealer[3] = 10;        
-        if (dealer[4] > 10) dealer[4] = 10;
-        if (player[3] > 10) player[3] = 10;
-        if (player[4] > 10) player[4] = 10;
+
         sum_player = player[1] + player[2];
         sum_dealer = dealer[1] + dealer[2];
         printf("[딜    러] 카드1:%2d  카드2: ?\n", dealer[1]);
@@ -215,6 +212,7 @@ void blackjack() {
         printf("│         ││         │\n");
         printf("└─────────┘└─────────┘\n");
         printf("[딜러:?? 플레이어:%2d]\n", sum_player);
+      
         sel_game = 1;
         while (sel_game) {
             printf("==================================================================================================\n");
@@ -251,55 +249,28 @@ void blackjack() {
                         }
                     }
                 }
-           
-                
-                
-                system("cls");
-                printf("[딜    러] 카드1:%2d  카드2: %d  카드 3 : ??\n", dealer[1], dealer[2]);
-                printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│    %2d   ││    %2d   ││    ??   │\n", dealer[1], dealer[2]);
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("└─────────┘└─────────┘└─────────┘\n");
-                printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
-                printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│    %2d   ││    %2d   ││    %2d   │\n", player[1], player[2], player[3]);
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("│         ││         ││         │\n");
-                printf("└─────────┘└─────────┘└─────────┘\n");
-                printf("[딜러:??  플레이어:%2d]\n",  sum_player);
 
 
 
+
+
+              
+                sum_dealer = dealer[1] + dealer[2];
                 if (sum_dealer < 17)  // 딜러의 이전카드까지의 합이 17미만인 경우 카드 하나 더
                 {
-                    do {
-                        dealer[++dealer_index] = rand() % 13 + 1;
-
-                        sum_dealer = 0;
-
-                        for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
-                        if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
-                        if (dealer[2] > 10) dealer[2] = 10;         
-                        if (dealer[3] > 10) dealer[3] = 10;
-                        if (dealer[4] > 10) dealer[4] = 10;
-                        if (dealer[5] > 10) dealer[5] = 10;
-                        if (dealer[6] > 10) dealer[6] = 10;
-
-                    } while (sum_dealer < 17);  // 17을 넘을 때까지 계속 뽑기
-                    if (sum_dealer > 17) break;
-                }
+                  
                 
+                    dealer[3] = rand() % 13 + 1;
+
+                    sum_dealer = dealer[1]+dealer[2]+ dealer[3];
+                    if (dealer[1] > 10) dealer[1] = 10; // J, Q, K
+                    if (dealer[2] > 10) dealer[2] = 10;
+                    if (dealer[3] > 10) dealer[3] = 10;
+                    if (dealer[4] > 10) dealer[4] = 10;
+                    
+                   
+                }
+
                 else // 딜러 stand
                 {
                     stand_dealer = 1;
@@ -309,17 +280,17 @@ void blackjack() {
                     for (i = 1; i <= dealer_index; i++) sum_dealer += dealer[i];
                     for (i = 1; i <= player_index; i++) sum_player += player[i];
                     system("cls");
-                    printf("[딜    러] 카드1:%2d  카드2: %d  카드 3 : ??\n", dealer[1], dealer[2]);
-                    printf("┌─────────┐┌─────────┐┌─────────┐\n");
-                    printf("│         ││         ││         │\n");
-                    printf("│         ││         ││         │\n");
-                    printf("│         ││         ││         │\n");
-                    printf("│         ││         ││         │\n");
-                    printf("│    %2d   ││    %2d   ││    ??   │\n", dealer[1], dealer[2]);
-                    printf("│         ││         ││         │\n");
-                    printf("│         ││         ││         │\n");
-                    printf("│         ││         ││         │\n");
-                    printf("└─────────┘└─────────┘└─────────┘\n");
+                    printf("[딜    러] 카드1:%2d  카드2: %d \n", dealer[1], dealer[2]);
+                    printf("┌─────────┐┌─────────┐\n");
+                    printf("│         ││         │\n");
+                    printf("│         ││         │\n");
+                    printf("│         ││         │\n");
+                    printf("│         ││         │\n");
+                    printf("│    %2d   ││    %2d   │\n", dealer[1], dealer[2]);
+                    printf("│         ││         │\n");
+                    printf("│         ││         │\n");
+                    printf("│         ││         │\n");
+                    printf("└─────────┘└─────────┘\n");
                     printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
                     printf("┌─────────┐┌─────────┐┌─────────┐\n");
                     printf("│         ││         ││         │\n");
@@ -332,7 +303,7 @@ void blackjack() {
                     printf("│         ││         ││         │\n");
                     printf("└─────────┘└─────────┘└─────────┘\n");
                     printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
-                   
+
                     if (sum_player > 21 && sum_dealer > 21)
                     {
                         printf("◎ 비겼습니다 ◎ (All bust)\n");
@@ -419,7 +390,7 @@ void blackjack() {
                     else if (sum_dealer > sum_player)
                     {
                         printf("▽ 졌습니다 ▽\n");
-                        currentSnack -= bet_snack;   
+                        currentSnack -= bet_snack;
                         printf("현재 간식 수 : %d(-%d)\n", currentSnack, bet_snack);
                         printf("┏━━┓ \n");
                         printf("┃━━┃ \n");
@@ -470,7 +441,7 @@ void blackjack() {
                         }
                         else if (sel_menu == 2) {
                             title();
-                    }
+                        }
                     }
                     else
                     {
@@ -500,8 +471,33 @@ void blackjack() {
                         }
                     }
                 }
+                sum_dealer = dealer[1] + dealer[2] + dealer[3];
+                system("cls");
+                printf("[딜    러] 카드1:%2d  카드2: %2d  카드 3 : %2d\n", dealer[1], dealer[2],dealer[3]);
+                printf("┌─────────┐┌─────────┐┌─────────┐\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│    %2d   ││    %2d   ││    %2d   │\n", dealer[1], dealer[2], dealer[3]);
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("└─────────┘└─────────┘└─────────┘\n");
+                printf("[플레이어] 카드1:%2d  카드2:%2d  카드 3:%2d\n", player[1], player[2], player[3]);
+                printf("┌─────────┐┌─────────┐┌─────────┐\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│    %2d   ││    %2d   ││    %2d   │\n", player[1], player[2], player[3]);
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("│         ││         ││         │\n");
+                printf("└─────────┘└─────────┘└─────────┘\n");
+                printf("[딜러:%2d  플레이어:%2d]\n",sum_dealer, sum_player);
                 
-  
+            
                 if (sum_player > 21 && sum_dealer > 21)
                 {
                     printf("◎ 비겼습니다 ◎ (All bust)\n");
@@ -698,7 +694,29 @@ void blackjack() {
                         }
                     }
                 }
-
+                system("cls");
+                printf("[딜    러] 카드1:%2d  카드2: %2d\n", dealer[1], dealer[2]);
+                printf("┌─────────┐┌─────────┐\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│    %2d   ││    %2d   │\n", dealer[1], dealer[2]);
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("└─────────┘└─────────┘\n");
+                printf("[플레이어] 카드1:%2d  카드2:%2d\n", player[1], player[2]);
+                printf("┌─────────┐┌─────────┐\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│    %2d   ││    %2d   │\n", player[1], player[2]);
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("│         ││         │\n");
+                printf("└─────────┘└─────────┘\n");
                 printf("[딜러:%2d  플레이어:%2d]\n", sum_dealer, sum_player);
 
                 if (sum_dealer > 21 && sum_player > 21)
@@ -908,14 +926,14 @@ void blackjack() {
 }
 void explain_blackjack() {
     printf("\t-플레이어는 카드를 받기 전에 베팅을 합니다\n.");
-    printf("\t-딜러의 첫 번째 카드를 제외한 모든 카드는 공개됩니다.\n");
+    printf("\t-최종 카드 합 비교시 21에 가까운 사람이 승리합니다.\n");
     printf("\t-에이스는 1점 또는 11점으로 계산할 수 있고, J, Q, K는 각각 10점입니다..\n");
-    printf("\t-처음 2장의 카드 합이 21점이면 '블랙잭'으로, 베팅액의 2배를 받습니다..\n");
-    printf("\t-딜러가 '블랙잭'인 경우 플레이어는 베팅액의 2배를 잃습니다.\n");
-    printf("\t-딜러와 플레이어가 모두 '블랙잭'인 경우 무승부로 베팅액은 돌려받습니다.\n.");
-    printf("\t-플레이어는 21점에 가까워지기 위해 카드를 추가로 받거나(2번 까지) 현재 카드로 멈출 수 있습니다.\n");
+    printf("\t-처음 2장의 카드 합이 21점이면 '블랙잭'으로,블랙잭 또는 승리 시 베팅액의 2배를 받습니다..\n");
+    printf("\t-딜러가 '블랙잭'또는 패배 시, 플레이어는 베팅액의 2배를 잃습니다.\n");
+    printf("\t-딜러와 플레이어가 모두 '블랙잭'이거나  무승부시 베팅액은 돌려받습니다.\n.");
+    printf("\t-플레이어는 21점에 가까워지기 위해 카드를 추가로 받거나(최대 1번 ) 현재 카드로 멈출 수 있습니다.\n");
     printf("\t-딜러는 플레이어 이후에 카드를 추가할지 여부를 결정합니다.\n");
-    printf("\t-딜러의 점수가 17 미만이면 1장의 카드를 더 뽑고, 17 이상이면 추가로 카드를 뽑지 않습니다.\n");
+    printf("\t-딜러의 점수가 17 미만이면 1장의 카드를 더 뽑고(최대 1번), 17 이상이면 추가로 카드를 뽑지 않습니다.\n");
     printf("\t-21점을 초과하면 점수가 0점으로 처리됩니다.\n");
 
     printf("블랙잭으로 돌아가려면 아무 키나 입력해주세요");

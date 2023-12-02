@@ -7,6 +7,7 @@
 
 void shop()
 {
+	system("mode con cols=100 lines=40 ");
 	int selMenu, currentSnack;
 
 	setlocale(LC_CTYPE, ""); //고양이 함수 불러오기
