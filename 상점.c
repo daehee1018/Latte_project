@@ -9,6 +9,23 @@ void shop()
 {
 	int selMenu, currentSnack;
 
+	setlocale(LC_CTYPE, ""); //고양이 함수 불러오기
+	setmode(_fileno(stdout), _O_U16TEXT);
+	FILE* filePointer = _wfopen(L"CAT.txt", L"r+, ccs=UTF-8");
+	wchar_t singleLine[100];
+	if (filePointer == NULL) {
+		wprintf(L"파일을 열 수 없습니다.\n");
+		return 1;
+	}
+
+	// 파일에서 한 줄씩 읽어오기
+	while (fgetws(singleLine, sizeof(singleLine) / sizeof(wchar_t), filePointer) != NULL) {
+		wprintf(L"%s", singleLine); // 유니코드 문자 출력
+	}
+
+	fclose(filePointer); // 파일 닫기
+	_setmode(_fileno(stdout), _O_TEXT); // 텍스트 출력 모드로 변경
+
 	// 파일에서 이전 점수 읽어오기
 	FILE* file = fopen("score.txt", "r");
 	if (file != NULL) {
@@ -87,7 +104,7 @@ void glasses_shop(){
 		printf(" 새로운 파일\n");
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
-
+	
 	printf("                                                                                    현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
