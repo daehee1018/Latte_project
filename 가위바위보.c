@@ -119,7 +119,7 @@ int rock() {
             break;
 
         }
-        int a;
+        
         // 게임 결과 출력
         if (playerChoice == computerChoice) {
             printf("비겼습니다! 츄르 +1\n");
