@@ -22,6 +22,30 @@
         else {
             fclose(file);
         }
+      
+
+
+        FILE* catFile = fopen("cat.txt", "r");
+
+        if (catFile == NULL) {
+            FILE* CatFile = fopen("cat.txt", "w");
+            if (CatFile != NULL) {
+                fprintf(CatFile, "%d", 0);
+                fclose(CatFile);
+            }
+            else {
+                printf(" error ");
+             
+            }
+        }
+        else {
+            fclose(catFile);
+        }
+
+        
+    
+
+
 	int test;
 
 
