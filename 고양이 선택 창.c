@@ -5,20 +5,6 @@
 #include <io.h>
 #include <fcntl.h>
 
-void cat1() {
-	printf("나는야 고양이 1\n");
-	system("cls"); id();
-}
-void cat2() {
-	printf("나는야 고양이 2\n");
-	system("cls"); id();
-}
-void cat3() {
-	printf("나는야 고양이 3\n");
-	system("cls"); id();
-}
-
-
 
 
 void choice_cat()
@@ -70,6 +56,9 @@ void choice_cat()
 
 
 }
+
+
+
 
 
 void gotoxy(int x, int y)
