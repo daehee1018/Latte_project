@@ -18,7 +18,6 @@ void GotoXY(int x, int y)
 }
 
 void blackjack() {
-    system("mode con cols=100 lines=40 ");
     wchar_t dealer_suit[3] = { L'\0', L'\0', L'\0' }; // 딜러 카드 무늬 초기화
     wchar_t player_suit[3] = { L'\0', L'\0', L'\0' }; // 플레이어 카드 무늬 초기화
     int currentSnack = 0;
@@ -97,6 +96,15 @@ void blackjack() {
             if (player[1] > 10) player[1] = 10;
             if (player[2] > 10) player[2] = 10;
          
+            if (dealer[1] == 1 && dealer[2] == 1) { dealer[1] = 11; dealer[2] = 1; }  // 두장 모두 에이스
+            else if (dealer[1] == 1) { dealer[1] = 11; }
+            else if (dealer[2] == 1) { dealer[2] = 11; }
+            else {}
+
+            if (player[1] == 1 && player[2] == 1) { player[1] = 11; player[2] = 1; } // 두장 모두 에이스
+            else if (player[1] == 1) { player[1] = 11; }
+            else if (player[2] == 1) { player[2] = 11; }
+            else {}
 
             sum_player = 0;
             sum_dealer = 0;
@@ -913,12 +921,19 @@ void explain_blackjack() {
  
 void start_blackjack() {
     int menu;
-    printf("_____________________________________________________________\n");
-    printf("|                    블랙잭 게임                            |\n");
-    printf("|1. 게임 시작                                               |\n");
-    printf("|2. 게임 설명                                               |\n");
-    printf("|___________________________________________________________|\n");
-    printf("번호 입력: ");
+    printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+    printf("                                       ┃              블랙잭               ┃\n");
+    printf("                                       ┃                                   ┃\n");
+    printf("                                       ┃         1. 게임 시작              ┃\n");
+    printf("                                       ┃         2. 게임 설명              ┃\n");
+    printf("                                       ┗━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━┛\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+    printf("                                           ▲  원하는 메뉴를 선택하세요 >  ");
     scanf("%d", &menu);
     if (menu == 1) {
         system("cls");  blackjack();
