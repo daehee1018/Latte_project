@@ -7,12 +7,10 @@
 
 void shop()
 {
-<<<<<<< HEAD
+
 	system("mode con cols=100 lines=40 ");
-	int selMenu, currentSnack;
-=======
 	int selMenu, selshop, currentSnack;
->>>>>>> ayuuuneee
+
 
 	setlocale(LC_CTYPE, ""); //고양이 함수 불러오기
 	setmode(_fileno(stdout), _O_U16TEXT);
