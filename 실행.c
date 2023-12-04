@@ -93,8 +93,8 @@ void choice(){
 int start_num;
     system("mode con cols=100 lines=40 ");
     printf("---------------------------------------------\n");
-    printf("|1. 고양이 초기화                              |\n");
-    printf("|2. 점수 초기화                                 |\n");
+    printf("|1. 고양이 초기화                            |\n");
+    printf("|2. 점수 초기화                              |\n");
     printf("---------------------------------------------\n");
     printf("\n");
     printf("\n");
