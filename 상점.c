@@ -7,7 +7,7 @@
 
 void shop()
 {
-	int selMenu, currentSnack;
+	int selMenu, selshop, currentSnack;
 
 	setlocale(LC_CTYPE, ""); //고양이 함수 불러오기
 	setmode(_fileno(stdout), _O_U16TEXT);
@@ -36,11 +36,45 @@ void shop()
 		printf(" 새로운 파일\n");
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
-
 	printf("\n\n");
 	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	printf("                                       ┃           상점 메뉴 선택          ┃\n");
+	printf("                                       ┃                                   ┃\n");
+	printf("                                       ┃         1. 일냥이 상점            ┃\n");
+	printf("                                       ┃         2. 이냥이 상점            ┃\n");
+	printf("                                       ┃         3. 삼냥이 상점            ┃\n");
+	printf("                                       ┃     4. 메인화면으로 돌아가기      ┃\n");
+	printf("                                       ┗━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━┛\n");
+	printf("                                           ▲  원하는 메뉴를 선택하세요 ▲ ");
+	scanf("%d", &selshop);
+	if (selshop == 1) { system("cls"); cat1shop(); }
+	if (selshop == 2) { system("cls"); cat2shop(); }
+	if (selshop == 3) { system("cls"); cat3shop(); }
+	if (selshop == 4) { system("cls"); title(); }
+
+}
+
+void cat1shop() {
+
+	int selMenu;
+	int	currentSnack;
+
+	// 파일에서 이전 점수 읽어오기
+	FILE* file = fopen("score.txt", "r");
+	if (file != NULL) {
+		fscanf(file, "%d", &currentSnack);
+		fclose(file);
+	}
+	else {
+		printf(" 새로운 파일\n");
+		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
+	}
+
+	printf("\n\n");
+	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
+	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+	printf("                                       ┃       일냥이 상점 메뉴 선택       ┃\n");
 	printf("                                       ┃                                   ┃\n");
 	printf("                                       ┃         1. 모자 구매하기          ┃\n");
 	printf("                                       ┃         2. 안경 구매하기          ┃\n");
@@ -50,16 +84,14 @@ void shop()
 	printf("                                           ▲  원하는 메뉴를 선택하세요 ▲ ");
 	scanf("%d", &selMenu);
 
-	if (selMenu == 1) { system("cls"); hat_shop(); }
-	if (selMenu == 2) { system("cls"); glasses_shop(); }
-	if (selMenu == 3) { system("cls"); snack(); }
+	if (selMenu == 1) { system("cls"); cat1hat_shop(); }
+	if (selMenu == 2) { system("cls"); cat1glasses_shop(); }
+	if (selMenu == 3) { system("cls"); cat1snack(); }
 	if (selMenu == 4) { system("cls"); title(); }
-
-
 
 }
 
-void hat_shop()
+void cat1hat_shop()
 {
 	int selHat;
 	int	currentSnack;
@@ -85,12 +117,12 @@ void hat_shop()
 	printf("                                       ┗━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━┛\n");
 	printf("                                           ▲  원하는 메뉴를 선택하세요 ▲ ");
 	scanf("%d", &selHat);
-	if (selHat == 1) { system("cls"); magic_hat(); }
-	if (selHat == 2) { system("cls"); crown(); }
+	if (selHat == 1) { system("cls"); cat1magic_hat(); }
+	if (selHat == 2) { system("cls"); cat1crown(); }
 	if (selHat == 3) { system("cls"); shop(); }
 }
 
-void glasses_shop(){
+void cat1glasses_shop(){
 
 	char buyGlasses;
 	int	currentSnack;
@@ -161,7 +193,7 @@ void glasses_shop(){
 
 }
 
-void magic_hat()
+void cat1magic_hat()
 {
 	char buyHat;
 	int	currentSnack;
@@ -229,7 +261,7 @@ void magic_hat()
 }
 		
 
-void crown()
+void cat1crown()
 { 
 	char buyCrown;
 	int	currentSnack;
@@ -297,7 +329,7 @@ void crown()
 
 }
 
-void snack() {
+void cat1snack() {
 	int	currentSnack;
 
 	// 파일에서 이전 점수 읽어오기
@@ -313,4 +345,12 @@ void snack() {
 
 	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("고양이에게 간식 주기\n");
+}
+
+void cat2shop() {
+
+}
+
+void cat3shop() {
+
 }
