@@ -1,10 +1,10 @@
-﻿#include"head.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include"head.h"
 #include <stdio.h>
 #include <windows.h>
 #include <locale.h> 
 #include <io.h>
 #include <fcntl.h>
-#define _CRT_SECURE_NO_WARNINGS
 
     int main() {
         system("mode con cols=150 lines=55 ");
