@@ -36,13 +36,13 @@
         scanf(" %c", &choice);
 
         if (choice == 'Y' || choice == 'y') {
-            FILE* newFilePointer = _wfopen(L"CAT.txt", L"w, ccs=UTF-8");
-            if (newFilePointer == NULL) {
+            FILE* filePointer = _wfopen(L"CAT.txt", L"w, ccs=UTF-8");
+            if (filePointer == NULL) {
                 printf("파일을 열 수 없습니다. 초기화 실패.\n");
             }
             else {
                 printf("고양이가 초기화되었습니다.\n");
-                fclose(newFilePointer);
+                fclose(filePointer);
             }
         }
         else {
