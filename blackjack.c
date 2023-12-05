@@ -1,5 +1,5 @@
-﻿#include "head.h"
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include "head.h"
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
