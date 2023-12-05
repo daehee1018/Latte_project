@@ -69,22 +69,29 @@ void setTextColor1(int color) {
     wprintf(L"    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
     wprintf(L"    ⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣶⣄⠀⣰⣾⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
     wprintf(L"    ⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⢀⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
-    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-
-    wprintf(L"      ⠀ ⠀⠀⠀⣴⣶⣶⣶⣶⣶⣶⣶⠆⢀⣴⣾⣿⣿⣦⢠⣿⣿⣤⠀⣰⣶⣿⣷⡄⢀⣿⣿⠀⢀⣿⣿⠀⠀⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⣸⠋⠙⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
-    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    wprintf(L"    ⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡿⠀⣼⣿⡇⢠⣿⡿⢸⣿⣟⡋⣸⣿⠏⢸⣿⡇⢸⣿⡇⠀⢸⣿⣿⣶⣶⣶⣶⣶⡆");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⣰⠇⠀⠀⠈⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
-    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    wprintf(L"     ⠀⠀⠀⠀⠀⠀⠀⢸⣿⡏⠀⣸⣿⡇⠀⠘⠿⣿⣿⠟⠁⣿⣿⠛⢃⣿⣿⠀⣸⣿⠇⣿⣿⠁⢰⣶⣶⣶⣶⣶⣶⣶⣶⡆");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⠀⠀⠀⠈⠛⠿⣿⠟⠁⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⠀⢰⡏⠀⠀⠀⠀⠈⣧⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
-    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    wprintf(L"    ⠀⠀⠀⠀⠀⠀⠀⣼⣿⠇⠀⠛⠛⠀⠀⣴⣾⡿⠿⠿⣿⣷⡆⠀ ⢸⣿⡇⢠⣿⡟⢰⣿⡟⠀⢨⣿⡏⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⡾⠃⠀⠀⠀⠀⠀⠘⠛⠉⠛⠻⢷⣦⡀⠀⠀⠀⠀⠀⠀⠀\n");
-    wprintf(L"    ⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⠁⠘⣿⣿⣶⣶⣶⣾⡿⠃⠀ ⠈⠿⣿⠿⠟⠁⣼⣿⠇⠀⣼⣿⣷⣶⣶⣶⣶⣶⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡶⠟⠉⠀⠀⠀⠀⠀⠀⣀⣤⣴⡶⢶⣦⣄⠀⠈⠛⢷⣄⠀⠀⠀⠀⠀\n");
-    wprintf(L"   ⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣴⣶⣎⣉⣉⠉⠀⣤⣤⣤⣤⣤⣤⣤⣤⠀⢀⣤⣤⣤⣬⣭⢩⣭⡭⠉⠉⠁⠀⠀⠀⠀⢀⣀⣀⣀⣀⣴⠟⠁⠀⠀⠀⠀⠀⠀⠀⢠⡾⢋⣤⠶⠒⢦⡀⠙⣿⡄⠀⠀⠙⣷⡀⠀⠀⠀\n");
-    wprintf(L"   ⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠿⠿⢿⣿⣿⠿⠿⠟⠀⢀⣉⣉⣉⣉⣉⣹⣿⡟⠀⠈⠉⠉⢹⣿⡏⣸⣿⡇⠀⠀⠀⠀⣶⠟⠛⠛⠛⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢱⣿⣿⣶⣶⣿⣿⡆⠘⣿⠀⠀⠀⠈⢿⡄⠀⠀\n");
-    wprintf(L"    ⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣾⡿⠿⣿⣷⣶⡄⠀⣸⣿⡟⠛⠛⠛⠛⠛⠃⠀⠀⠀⢀⣾⣿⢁⣿⣿⣶⠆⠀⠀⠀⢹⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢆⠘⣿⣿⣿⣿⣿⣿⠇⣰⡿⠀⠀⠀⠀⠈⢿⠀⠀\n");
-    wprintf(L"    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣭⣭⣤⣤⣤⣤⣭⣭⡅⠀⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⣠⣾⡿⠃⢸⣿⡏⠉⠀⠀⠀ ⠀⠀⢿⣄⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠸⣆⡘⠻⠿⠿⠛⣡⣾⠟⠁⠀⠀⠀⠀⠀⠈⠀⠀\n");
-    wprintf(L"    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢉⣿⡿⠉⢹⣿⡏⠉⠁⣶⣶⣶⣶⣶⣶⣶⣶⣶⠀⣶⣿⠿⠋⠀⠀⣾⣿⠃⠀⠀ ⠀⠀⠀⠀⠈⢿⣆⠀⠀⣠⡾⢛⡉⠉⠛⢷⣄⠀⠀⠀⠀⠀⠈⠙⠻⠶⠾⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
-    wprintf(L"    ⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣸⡛⢣⣤⡟⠛⣁⣀⣀⣉⣉⣉⣉⣉⡉⠉⠉⢁⣤⡁⠀⠀⣠⣤⠀⢛⣛⣀⣀⣀⣀⢀⣤⡄⠀ ⢨⡇⠀⢰⡏⣴⣧⣠⣴⣷⡌⣿⡆⠀⠀⣀⠀⠀⢀⣤⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
+    
+    setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    wprintf(L"      ⠀ ⠀⠀⠀⣴⣶⣶⣶⣶⣶⣶⣶⠆⢀⣴⣾⣿⣿⣦⢠⣿⣿⣤⠀⣰⣶⣿⣷⡄⢀⣿⣿⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⢀⣿⣿⠀⠀⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⣸⠋⠙⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    wprintf(L"    ⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡿⠀⣼⣿⡇⢠⣿⡿⢸⣿⣟⡋⣸⣿⠏⢸⣿⡇⢸⣿⡇⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⢸⣿⣿⣶⣶⣶⣶⣶⡆");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⣰⠇⠀⠀⠈⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    wprintf(L"     ⠀⠀⠀⠀⠀⠀⠀⢸⣿⡏⠀⣸⣿⡇⠀⠘⠿⣿⣿⠟⠁⣿⣿⠛⢃⣿⣿⠀⣸⣿⠇⣿⣿⠁");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⢰⣶⣶⣶⣶⣶⣶⣶⣶⡆");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⠀⠀⠀⠈⠛⠿⣿⠟⠁⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⠀⢰⡏⠀⠀⠀⠀⠈⣧⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    wprintf(L"    ⠀⠀⠀⠀⠀⠀⠀⣼⣿⠇⠀⠛⠛⠀⠀⣴⣾⡿⠿⠿⣿⣷⡆⠀ ⢸⣿⡇⢠⣿⡟⢰⣿⡟⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⢨⣿⡏⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⡾⠃⠀⠀⠀⠀⠀⠘⠛⠉⠛⠻⢷⣦⡀⠀⠀⠀⠀⠀⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    wprintf(L"    ⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⠁⠘⣿⣿⣶⣶⣶⣾⡿⠃⠀ ⠈⠿⣿⠿⠟⠁⣼⣿⠇");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⠀⣼⣿⣷⣶⣶⣶⣶⣶⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡶⠟⠉⠀⠀⠀⠀⠀⠀⣀⣤⣴⡶⢶⣦⣄⠀⠈⠛⢷⣄⠀⠀⠀⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN  );
+    wprintf(L"   ⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣴⣶⣎⣉⣉⠉⠀⣤⣤⣤⣤⣤⣤⣤⣤⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⢀⣤⣤⣤⣬⣭⢩⣭⡭⠉⠉⠁⠀⠀⠀⠀⢀⣀⣀⣀⣀⣴⠟⠁⠀⠀⠀⠀⠀⠀⠀⢠⡾⢋⣤⠶⠒⢦⡀⠙⣿⡄⠀⠀⠙⣷⡀⠀⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN  );
+    wprintf(L"   ⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠿⠿⢿⣿⣿⠿⠿⠟⠀⢀⣉⣉⣉⣉⣉⣹⣿⡟⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⠈⠉⠉⢹⣿⡏⣸⣿⡇⠀⠀⠀⠀⣶⠟⠛⠛⠛⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢱⣿⣿⣶⣶⣿⣿⡆⠘⣿⠀⠀⠀⠈⢿⡄⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN );
+    wprintf(L"    ⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣾⡿⠿⣿⣷⣶⡄⠀⣸⣿⡟⠛⠛⠛⠛⠛⠃⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⠀⠀⢀⣾⣿⢁⣿⣿⣶⠆⠀⠀⠀⢹⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢆⠘⣿⣿⣿⣿⣿⣿⠇⣰⡿⠀⠀⠀⠀⠈⢿⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN );
+    wprintf(L"    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣭⣭⣤⣤⣤⣤⣭⣭⡅⠀⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⠀⣠⣾⡿⠃⢸⣿⡏⠉⠀⠀⠀ ⠀⠀⢿⣄⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠸⣆⡘⠻⠿⠿⠛⣡⣾⠟⠁⠀⠀⠀⠀⠀⠈⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN );
+    wprintf(L"    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢉⣿⡿⠉⢹⣿⡏⠉⠁⣶⣶⣶⣶⣶⣶⣶⣶⣶⠀");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⣶⣿⠿⠋⠀⠀⣾⣿⠃⠀⠀ ⠀⠀⠀⠀⠈⢿⣆⠀⠀⣠⡾⢛⡉⠉⠛⢷⣄⠀⠀⠀⠀⠀⠈⠙⠻⠶⠾⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN );
+    wprintf(L"    ⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣸⡛⢣⣤⡟⠛⣁⣀⣀⣉⣉⣉⣉⣉⡉⠉⠉⢁");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"⣤⡁⠀⠀⣠⣤⠀⢛⣛⣀⣀⣀⣀⢀⣤⡄⠀ ⢨⡇⠀⢰⡏⣴⣧⣠⣴⣷⡌⣿⡆⠀⠀⣀⠀⠀⢀⣤⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
     wprintf(L"    ⠀⠀⠀⠀⠀⢀⣿⡿⠛⣿⣿⣥⣿⣿⠁⠀⠻⠿⠿⠿⠿⢿⣿⣿⠀⠀⠀⣾⣿⡇⠀⢠⣿⡿⠀⢸⣿⡟⠛⠛⠋⣸⣿⡇⠀ ⢸⡇⠀⣿⠀⣿⣿⣿⣿⣿⡇⣿⡇⠀⢠⣿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
     wprintf(L"    ⠀⠀⠀⠀⠀⢸⣿⣧⣤⣿⡟⢻⣿⡏⠀⠀⠀⢠⣤⡄⠀⢸⣿⡇⢀⣤⣾⣿⣿⣷⡄⣸⣿⡇⠀⣿⣿⠁⠀⠀⠀⣿⣿⣤⠄ ⢸⡇⠀⢻⡄⢿⣿⣿⣿⡿⣹⡿⠁⢀⣾⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
     wprintf(L"    ⠀⠀⠀⠀⠀⢛⣛⣛⣛⣛⣃⣾⣿⠃⠀⠀⠀⣸⣿⡇⢀⣿⣿⠁⠘⣻⣭⣤⣭⣽⣧⣿⣿⠀⢸⣿⡏⠀⠀⠀⢸⣿⡟⠛⠀ ⠀⣧⠀⠈⠻⣮⣍⣩⣥⣾⠟⠁⠘⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
@@ -99,8 +106,9 @@ void setTextColor1(int color) {
         while (1) {
     printf("\n");
     printf("\n");
-    printf("                        고양이 생성을 원한다면 1을 눌러주세요\n");
-    printf("                    메인화면으로 이동하기를 원한다면 2을 눌러주세요\n");
+    printf("                        고양이 생성을 원한다면");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L" 1");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"을 눌러주세요\n");
+    printf("                    메인화면으로 이동하기를 원한다면");setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);wprintf(L" 2");setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);wprintf(L"를 눌러주세요\n");
+    setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
         scanf("%d", &test);
 
 
