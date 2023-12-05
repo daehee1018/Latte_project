@@ -1,14 +1,14 @@
-﻿#include"head.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include"head.h"
 #include <stdio.h>
 #include <windows.h>
 #include <locale.h> 
 #include <io.h>
 #include <fcntl.h>
-
 void shop()
 {
 
-	system("mode con cols=100 lines=40 ");
+	system("mode con cols=150 lines=55 ");
 	int selMenu, selshop, currentSnack;
 
 
