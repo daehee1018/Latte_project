@@ -18,7 +18,7 @@ void title() {
     printf("\n");
     printf("\n");
     printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
-    printf("                                           ▲  원하는 메뉴를 선택하세요 >  ");
+    printf("                                          ▲  원하는 메뉴를 선택하세요 >  ");
     scanf_s("%d", &start_num);
     if (start_num == 1) { system("cls"); rock(); }
     else if (start_num == 2) { system("cls"); start_blackjack(); }
