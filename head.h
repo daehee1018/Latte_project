@@ -13,7 +13,7 @@ void shop(void);
 void initialize_deck(void);
 void start_blackjack(void);
 char ID[20];//아이디
-char id(void);// 아이디 등록
+void id(void);// 아이디 등록
 void gotoxy(int x, int y);
 void choice(void);
 void cat(void);
@@ -22,3 +22,21 @@ void glasses_shop();
 void magic_hat();
 void crown();
 void snack();
+void cat1shop();
+void cat2shop();
+void cat3shop();
+void cat1hat_shop();
+void cat1glasses_shop();
+void cat1magic_hat();
+void cat1crown();
+void cat1snack();
+void cat2hat_shop();
+void cat2glasses_shop();
+void cat2magic_hat();
+void cat2crown();
+void cat2snack();
+void cat3hat_shop();
+void cat3glasses_shop();
+void cat3magic_hat();
+void cat3crown();
+void cat3snack();

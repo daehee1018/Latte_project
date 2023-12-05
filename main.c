@@ -8,6 +8,7 @@
 
 
     int main() {
+        system("mode con cols=150 lines=55 ");
         FILE* file = fopen("score.txt", "r");
    
         if (file == NULL) {
@@ -17,13 +18,37 @@
                 fclose(File);
             }
             else {
-                printf("score.txt error ");
+                printf("error ");
                 return 1;
             }
         }
         else {
             fclose(file);
         }
+      
+
+
+        FILE* catFile = fopen("cat.txt", "r");
+
+        if (catFile == NULL) {
+            FILE* CatFile = fopen("cat.txt", "w");
+            if (CatFile != NULL) {
+                fprintf(CatFile, "%d", 0);
+                fclose(CatFile);
+            }
+            else {
+                printf(" error ");
+             
+            }
+        }
+        else {
+            fclose(catFile);
+        }
+
+        
+    
+
+
 	int test;
 
 
@@ -55,7 +80,7 @@
  
 
 
-    _setmode(_fileno(stdout), _O_TEXT);\
+    _setmode(_fileno(stdout), _O_TEXT);
         while (1) {
     printf("\n");
     printf("\n");
@@ -85,7 +110,6 @@
 
     }
     
-    system("mode con cols=100 lines=32 ");
 	
 
 
