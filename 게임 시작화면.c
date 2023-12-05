@@ -5,8 +5,6 @@
 #include <io.h>
 #include <fcntl.h>
 
-
-
     int main() {
         FILE* file = fopen("score.txt", "r");
    
