@@ -1,15 +1,19 @@
-﻿#include"head.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include"head.h"
 #include <stdio.h>
 #include <windows.h>
 #include <locale.h> 
 #include <io.h>
 #include <fcntl.h>
 
+<<<<<<< HEAD
 
 
 void setTextColor(int color) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
+=======
+>>>>>>> main
     int main() {
  
         
@@ -87,7 +91,7 @@ void setTextColor(int color) {
     wprintf(L"    ⠀⠀⠀⠀⠀⢛⣛⣛⣛⣛⣃⣾⣿⠃⠀⠀⠀⣸⣿⡇⢀⣿⣿⠁⠘⣻⣭⣤⣭⣽⣧⣿⣿⠀⢸⣿⡏⠀⠀⠀⢸⣿⡟⠛⠀ ⠀⣧⠀⠈⠻⣮⣍⣩⣥⣾⠟⠁⠘⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
     wprintf(L"    ⠀⠀⠀⠀⠀⠛⠛⠛⠛⠛⢻⣿⡿⠀⣠⣤⣤⣿⣿⣤⣬⣭⣥⠀⠀⣛⣿⣿⣛⣻⣿⣟⠃⠀⣼⣿⣧⣤⣤⣤⣾⣿⠃⠀⠀ ⠀⠸⡆⠀⠀⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
     wprintf(L"     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠿⠇⠀⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠸⠿⠿⠿⠿⠿⠿⠿⠃⠀⠉⠉⠉⠉⠉⠹⠿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
-    wprintf(L"새 프로젝트 확인용");
+
       
  
 
