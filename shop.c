@@ -8,7 +8,7 @@
 void shop()
 {
 
-	system("mode con cols=100 lines=40 ");
+	system("mode con cols=150 lines=55 ");
 	int selMenu, selshop, currentSnack;
 
 
