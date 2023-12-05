@@ -91,19 +91,21 @@ void choice_snack(){
 }
 void choice(){
 int start_num;
-    system("mode con cols=100 lines=40 ");
-    printf("---------------------------------------------\n");
-    printf("|1. 고양이 초기화                            |\n");
-    printf("|2. 점수 초기화                              |\n");
-    printf("---------------------------------------------\n");
+    system("mode con cols=150 lines=55 ");
+    printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+    printf("                                       ┃              초기화               ┃\n");
+    printf("                                       ┃                                   ┃\n");
+    printf("                                       ┃         1. 고양이 초기화          ┃\n");
+    printf("                                       ┃         2. 점수 초기화            ┃\n");
+    printf("                                       ┗━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━┛\n");
     printf("\n");
     printf("\n");
     printf("\n");
     printf("\n");
     printf("\n");
-    printf("---------------------------------------------\n");
-    printf("\t 이동할 화면의 숫자를 입력하세요!\n");
-    scanf_s("%d", &start_num);
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━━━\n");
+    printf("                                           ▲  원하는 메뉴를 선택하세요  ▲    ");
+    scanf("%d", &start_num);
     if (start_num == 1) { system("cls"); choice_newcat(); }
     else if (start_num == 2) { system("cls"); choice_snack(); }
     }
