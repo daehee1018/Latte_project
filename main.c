@@ -9,7 +9,7 @@
 
 
 
-void setTextColor(int color) {
+void setTextColor1(int color) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
