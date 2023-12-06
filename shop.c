@@ -58,16 +58,14 @@ void shop()
 	printf("                                       ┃         1. 일냥이 상점            ┃\n");
 	printf("                                       ┃         2. 이냥이 상점            ┃\n");
 	printf("                                       ┃         3. 삼냥이 상점            ┃\n");
-	printf("                                       ┃      4. 고양이에게 츄르 주기      ┃\n");
-	printf("                                       ┃     5. 메인화면으로 돌아가기      ┃\n");
+	printf("                                       ┃     4. 메인화면으로 돌아가기      ┃\n");
 	printf("                                       ┗━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━┛\n");
 	printf("                                           ▲  원하는 메뉴를 선택하세요 ▲ ");
 	scanf("%d", &selshop);
 	if (selshop == 1) { system("cls"); cat1shop(); }
 	if (selshop == 2) { system("cls"); cat2shop(); }
 	if (selshop == 3) { system("cls"); cat3shop(); }
-	if (selshop == 4) { system("cls"); eating(); }
-	if (selshop == 5) { system("cls"); title(); }
+	if (selshop == 4) { system("cls"); title(); }
 }
 
 
