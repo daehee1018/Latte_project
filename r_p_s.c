@@ -63,12 +63,14 @@ int rock() {
         printf("당신:\n");
         switch (playerChoice) {
         case 1:
+            setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
             printf("   _______\n");
             printf("---'   ____)____\n");
             printf("          ______)\n");
             printf("       __________)\n");
             printf("      (____)\n");
             printf("---.__(___)\n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             break;
         case 2:
             setTextColor(FOREGROUND_BLUE | FOREGROUND_INTENSITY);
@@ -78,14 +80,17 @@ int rock() {
             printf("      (_____)       \n");
             printf("      (____)        \n");
             printf("---.__(___)         \n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             break;
         case 3:
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             printf("    _______\n");
             printf("---'   ____)____\n");
             printf("          ______)\n");
             printf("          _______)\n");
             printf("         _______)\n");
             printf("---.__________)\n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             break;
 
         }
@@ -116,6 +121,7 @@ int rock() {
             break;
 
         case 3:
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             printf("    _______\n");
             printf("---'   ____)____\n");
             printf("          ______)\n");
@@ -129,6 +135,7 @@ int rock() {
 
         // 게임 결과 출력
         if (playerChoice == computerChoice) {
+            printf(" \n");
             printf("비겼습니다! 츄르 +1\n");
             currentSnack += 1;
             check_snack += 1;
@@ -138,13 +145,20 @@ int rock() {
         else if ((playerChoice == 1 && computerChoice == 3) ||
             (playerChoice == 2 && computerChoice == 1) ||
             (playerChoice == 3 && computerChoice == 2)) {
+            setTextColor(FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+            printf(" \n");
+            printf("승리!\n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
             printf("당신이 이겼습니다! 츄르 +2\n");
             currentSnack += 2;
             check_snack += 2;
         }
         else {
+            setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
+            printf(" \n");
+            printf("패배!\n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
             printf("컴퓨터가 이겼습니다! 츄르 +0\n");
-
 
         }
         printf("아무 키나 눌러 다음으로 진행합니다.\n");
