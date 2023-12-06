@@ -82,6 +82,7 @@ int rock() {
             setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             break;
         case 3:
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             printf("    _______\n");
             printf("---'   ____)____\n");
             printf("          ______)\n");
@@ -118,6 +119,7 @@ int rock() {
             break;
 
         case 3:
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             printf("    _______\n");
             printf("---'   ____)____\n");
             printf("          ______)\n");
