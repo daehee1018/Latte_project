@@ -10,8 +10,9 @@
 
 int rock() {
     system("mode con cols=150 lines=55 ");
-    int currentSnack = 0; 
-    
+    int currentSnack = 0;
+    int check_snack = 0;
+    setlocale(LC_CTYPE, "");  // 로케일을 설정하여 유니코드 출력을 활성화
     // 파일에서 이전 점수 읽어오기
     FILE* file = fopen("score.txt", "r");
     if (file != NULL) {
@@ -24,7 +25,7 @@ int rock() {
     }
 
     // 랜덤 시드 설정
-    srand(time(NULL));
+    srand((unsigned)time(NULL));
 
     printf("가위바위보 게임이 시작됩니다.\n\n");
     printf("게임은 5라운드 까지 진행되고, 이기면 2점, 비기면 1점, 지면 0점을 얻습니다.\n\n");
@@ -121,13 +122,12 @@ int rock() {
             break;
 
         }
-        
+
         // 게임 결과 출력
         if (playerChoice == computerChoice) {
             printf("비겼습니다! 츄르 +1\n");
             currentSnack += 1;
-
-
+            check_snack += 1;
         }
 
 
@@ -136,7 +136,7 @@ int rock() {
             (playerChoice == 3 && computerChoice == 2)) {
             printf("당신이 이겼습니다! 츄르 +2\n");
             currentSnack += 2;
-
+            check_snack += 2;
         }
         else {
             printf("컴퓨터가 이겼습니다! 츄르 +0\n");
@@ -147,33 +147,30 @@ int rock() {
         printf("                                                    현재까지 획득한 간식 : % d개\n", currentSnack);
         _getch();
         system("cls");
+
     }
 
+        // 새로운 점수를 파일에 저장하기
+        file = fopen("score.txt", "w");
+        if (file != NULL) {
+            fprintf(file, "%d", currentSnack);
+            fclose(file);
+            printf("\n게임 종료!  최종 간식 수 : %d\n", currentSnack);
+            printf("총 획득한 츄르 : % d개\n", check_snack);
+            printf("┏━━┓ \n");
+            printf("┃━━┃ \n");
+            printf("┃  ┃\n");
+            printf("┃츄┃\n");
+            printf("┃  ┃x %d\n", check_snack);
+            printf("┃르┃\n");
+            printf("┃  ┃\n");
+            printf("┗━━┛\n");
+            _getch();
+            system("cls");
+        }
+        else {
+            printf("파일을 열 수 없습니다. 점수를 저장할 수 없습니다.\n");
+        }
 
-
-
-    setlocale(LC_CTYPE, "");  // 로케일을 설정하여 유니코드 출력을 활성화
-
-    printf("\n게임 종료\n");
-    printf("총 획득한 츄르 : % d개\n", currentSnack);
-    printf("┏━━┓ \n");
-    printf("┃━━┃ \n");
-    printf("┃  ┃\n");
-    printf("┃츄┃\n");
-    printf("┃  ┃x %d\n", currentSnack);
-    printf("┃르┃\n");
-    printf("┃  ┃\n");
-    printf("┗━━┛\n");
-    // 새로운 점수를 파일에 저장하기
-    file = fopen("score.txt", "w");
-    if (file != NULL) {
-        fprintf(file, "%d", currentSnack);
-        fclose(file);
-        printf("게임이 종료되었습니다. 최종 점수: %d\n", currentSnack);
-    }
-    else {
-        printf("파일을 열 수 없습니다. 점수를 저장할 수 없습니다.\n");
-    }
-
-    title();
-}
+        title();
+        return 0;    }
