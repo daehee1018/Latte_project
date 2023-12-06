@@ -681,7 +681,15 @@ void cat2crown() {
 		printf(" 새로운 파일\n");
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
+	FILE* filePointer = _wfopen(L"CAT.txt", L"r+, ccs=UTF-8");
 
+	// 파일이 열리지 않을 경우 오류 처리
+	if (filePointer == NULL) {
+		wprintf(L"파일을 열 수 없습니다.\n");
+		return 1;
+	}
+	// 파일을 열고 닫은 후에 새로운 내용을 파일에 쓰기
+	fclose(filePointer);
 	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	setlocale(LC_CTYPE, "");
 	_setmode(_fileno(stdout), _O_U16TEXT); // Call this before writing anything
@@ -708,10 +716,64 @@ void cat2crown() {
 	scanf(" %c", &buyCrown);
 
 	if (buyCrown == 'y' || buyCrown == 'Y') {
-		if (currentSnack >= 999) {
-			currentSnack -= 999;
+		if (currentSnack >= 1) {
+			currentSnack -= 1;
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
+			setlocale(LC_CTYPE, "");
+			setmode(_fileno(stdout), _O_U16TEXT);
+			SetConsoleOutputCP(CP_UTF8);
+
+			wchar_t singleLine[100];
+			filePointer = _wfopen(L"CAT.txt", L"w+, ccs=UTF-8");
+			if (filePointer == NULL) {
+				wprintf(L"파일을 열 수 없습니다.\n");
+				return;
+			}
+
+			while (fgetws(singleLine, sizeof(singleLine) / sizeof(wchar_t), filePointer) != NULL)
+				wprintf(L"%s", singleLine); // 유니코드 문자 출력
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠶⣶⣄⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠐⣿⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⢠⣴⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⠀⠁⡘⣿⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠿⣿⣧⡀⠀⠀⠀⢰⣿⣆⠀⢀⣴⠟⡁⢾⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠀⠀⣾⡯⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡏⠀⠀⠹⣷⡄⠀⠀⣿⠁⠻⣷⡿⣭⠶⢾⡼⣿⣄⣀⣤⣴⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠋⠀⠀⢿⡗⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡟⠀⠀⠀⠀⠹⣿⡆⢸⡏⠌⢡⠈⣼⡏⠀⢸⣿⠛⡉⠋⡄⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡀⠠⠀⣬⡇⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠁⠀⠀⠀⠀⠠⠙⠻⠼⢿⣾⣤⣘⠘⣿⣶⡿⢃⡐⢈⠡⣐⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠃⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠄⠐⠀⠀⠉⠛⠻⠷⣶⣶⣷⣦⣧⣶⣾⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣨⡀⠄⠂⣼⡇⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⣰⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠁⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⣰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣶⡶⣶⣶⣶⣶⣶⣶⣤⣿⠀⠀⠀⣿⡧⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀⠐⠷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣠⡾⠛⠁⠀⡐⠈⠀⠄⠀⠠⠈⠐⠀⡈⠐⠀⠀⠙⣿⣿⡼⣏⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⢀⠀⠀⠀⠙⠳⣦⠀⠀⠀⠀⠀⠀⢀⡤⠶⠿⠿⠿⠿⠶⠀⠀⠀⠀⣿⠀⠀⠀⣠⡾⠋⠀⠀⠀⡐⠈⠀⠀⠀⠌⠀⠄⠁⠠⠀⠄⠁⠀⠀⠹⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⢽⡀⠀⠀⠈⠻⢦⡀⠀⠀⠀⠀⠀⡀⠀⠀⠈⠁⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⢠⡟⠀⣠⡾⠋⠀⠀⠀⡐⠀⠌⠀⠀⠌⠀⠄⠁⠠⠀⠄⠁⠀⠀⠸⣿⣿⡧⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠸⣇⠀⠰⠶⠶⠦⠀⠀⠀⣤⣴⣾⡿⠋⠀⠀⠀⠀⠀⠀⢛⡉⠁⠀⠀⠀⠀⣾⣁⡾⠋⠀⠀⠀⠀⠀⡐⠈⠀⠀⠀⠄⠈⠀⠀⠁⡀⠂⠀⠀⠀⠀⢻⣿⡧⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠹⣧⣀⣠⡤⠖⠀⠀⠀⠘⢿⣿⣿⠏⠀⠀⠀⠀⠀⠀⡉⠙⠛⠃⠀⢀⣼⡟⠉⠀⠀⠀⠀⠀⠀⢀⠐⠀⠀⠀⠀⠠⠁⠀⠀⠁⡀⠐⠀⠀⠀⠀⠀⢿⣿⡇⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢷⣤⡀⠀⠀⠀⠀⠀⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠈⢶⡄⠀⣠⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠀⠀⠀⠐⡀⠀⠀⠂⢀⠂⠀⠀⠀⠀⠀⠸⣿⣿⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣷⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⠇⠀⠈⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡄⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣻⣿⡇⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠋⠀⠀⠀⢀⡀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣴⣶⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⢠⣿⡟⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⢀⣴⣿⠃⣠⣴⣿⣿⠿⠛⠛⠿⠿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⣤⣴⣶⣶⣿⣿⠿⠿⠛⢻⣯⡀⠀⠀⠘⢿⣷⠀⠀⠀⠀⠀⠀⣸⣿⠇⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⢀⣴⣿⡟⢀⣴⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⣰⣿⠏⠀⠀⠀⠀⣠⣾⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣷⣄⠀⢸⣿⡇⠀⠀⠀⠀⢠⣿⠃⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⣿⣿⣿⣿⣿⠿⠛⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⡟⠁⠀⠀⠀⣠⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⡇⠀⠀⠀⠀⣰⣿⢿⡇⠀⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠈⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⠏⠀⠀⠀⣠⣾⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⠿⠿⠛⠁⠀⠀⠀⠀⠘⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⡿⠁⠀⠀⣠⣾⡿⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠀⣀⣴⣿⠿⠋⠀⠀⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣋⣀⣠⣴⣾⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⠿⠿⠿⠛⠁⠀⠀⠀⠀⠘⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀\n");
+			fwprintf(filePointer, L"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⠟⠻⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀\n");
+
+			rewind(filePointer); // 파일 포인터를 파일의 시작으로 이동
+			while (fgetws(singleLine, sizeof(singleLine) / sizeof(wchar_t), filePointer) != NULL) {
+				wprintf(L"%s", singleLine); // 유니코드 문자 출력
+
+			}
+
+			fclose(filePointer); // 파일 닫기
+			_setmode(_fileno(stdout), _O_TEXT); // 텍스트 출력 모드로 변경
+			_getch();
+			system("cls");
+			shop();
 		}
 		else {
 			printf("\n\n");
