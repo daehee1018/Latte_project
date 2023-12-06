@@ -62,12 +62,14 @@ int rock() {
         printf("´ç½Å:\n");
         switch (playerChoice) {
         case 1:
+            setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
             printf("   _______\n");
             printf("---'   ____)____\n");
             printf("          ______)\n");
             printf("       __________)\n");
             printf("      (____)\n");
             printf("---.__(___)\n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             break;
         case 2:
             printf("    _______\n");
@@ -92,13 +94,14 @@ int rock() {
         switch (computerChoice) {
 
         case 1:
+            setTextColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
             printf("   _______\n");
             printf("---'   ____)____\n");
             printf("          ______)\n");
             printf("       __________)\n");
             printf("      (____)\n");
             printf("---.__(___)\n");
-
+            setTextColor(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
             break;
         case 2:
             printf("    _______\n");
