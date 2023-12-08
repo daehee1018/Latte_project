@@ -73,9 +73,8 @@ void choice_snack(){
         printf("점수를 초기화 하시겠습니까? (Y/N):  ");
         scanf("  %c", &choice);
 
-        // 점수 초기화
-        FILE* file = fopen("score.txt", "w");
         if (choice == 'Y' || choice == 'y') {
+            FILE* file = fopen("score.txt", "w");
             currentSnack = currentSnack * 0;
             fseek(file, 0, SEEK_SET); // 파일 포인터 위치를 파일의 시작으로 이동
             fprintf(file, "%d", currentSnack);
