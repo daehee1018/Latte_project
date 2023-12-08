@@ -161,7 +161,14 @@ void cat1magic_hat()
 		
 		if (currentSnack >= 700) {
 			currentSnack -= 700;
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
+			else {}
 			wprintf(L"\n\n                   마법사 모자를 성공적으로 구매하였습니다!\n");
+			
 
 			setlocale(LC_CTYPE, "");
 			setmode(_fileno(stdout), _O_U16TEXT);
@@ -292,6 +299,12 @@ void cat1crown()
 	if (buyCrown == 'y' || buyCrown == 'Y') {
 		if (currentSnack >= 999) {
 			currentSnack -= 999;
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
+			else {}
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -743,6 +756,12 @@ void cat2magic_hat() {
 	if (buyHat == 'y' || buyHat == 'Y') {
 		if (currentSnack >= 700) {
 			currentSnack -= 700;
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
+			else {}
 			printf("\n\n");
 			printf("                   마법사 모자를 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -869,6 +888,12 @@ void cat2crown() {
 	if (buyCrown == 'y' || buyCrown == 'Y') {
 		if (currentSnack >= 999) {
 			currentSnack -= 999;
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
+			else {}
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -1319,6 +1344,12 @@ void cat3magic_hat() {
 	if (buyHat == 'y' || buyHat == 'Y') {
 		if (currentSnack >= 700) {
 			currentSnack -= 700;
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
+			else {}
 			printf("\n\n");
 			printf("                   마법사 모자를 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -1463,6 +1494,12 @@ void cat3crown() {
 	if (buyCrown == 'y' || buyCrown == 'Y') {
 		if (currentSnack >= 999) {
 			currentSnack -= 999;
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
+			else {}
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
