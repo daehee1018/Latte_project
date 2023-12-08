@@ -176,7 +176,11 @@ void cat1magic_hat()
 		if (currentSnack >= 700) {
 			currentSnack -= 700;
 			wprintf(L"\n\n                   마법사 모자를 성공적으로 구매하였습니다!\n");
-
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
 			setlocale(LC_CTYPE, "");
 			setmode(_fileno(stdout), _O_U16TEXT);
 			SetConsoleOutputCP(CP_UTF8);
@@ -308,6 +312,11 @@ void cat1crown()
 			currentSnack -= 10;
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
 			setlocale(LC_CTYPE, "");
 			setmode(_fileno(stdout), _O_U16TEXT);
 			SetConsoleOutputCP(CP_UTF8);
@@ -790,6 +799,11 @@ void cat2magic_hat() {
 			currentSnack -= 700;
 			printf("\n\n");
 			printf("                   마법사 모자를 성공적으로 구매하였습니다!\n");
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
 			setlocale(LC_CTYPE, "");
 			setmode(_fileno(stdout), _O_U16TEXT);
 			SetConsoleOutputCP(CP_UTF8);
@@ -916,6 +930,11 @@ void cat2crown() {
 			currentSnack -= 999;
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
 			setlocale(LC_CTYPE, "");
 			setmode(_fileno(stdout), _O_U16TEXT);
 			SetConsoleOutputCP(CP_UTF8);
@@ -1411,6 +1430,11 @@ void cat3magic_hat() {
 			currentSnack -= 700;
 			printf("\n\n");
 			printf("                   마법사 모자를 성공적으로 구매하였습니다!\n");
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
 			setlocale(LC_CTYPE, "");
 			setmode(_fileno(stdout), _O_U16TEXT);
 			SetConsoleOutputCP(CP_UTF8);
@@ -1555,6 +1579,11 @@ void cat3crown() {
 			currentSnack -= 999;
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
+			file = fopen("score.txt", "w");
+			if (file != NULL) {
+				fprintf(file, "%d", currentSnack);
+				fclose(file);
+			}
 			setlocale(LC_CTYPE, "");
 			setmode(_fileno(stdout), _O_U16TEXT);
 			SetConsoleOutputCP(CP_UTF8);
