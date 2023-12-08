@@ -51,6 +51,7 @@ void shop()
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
 	printf("\n\n");
+	printf("                                               고양이 이름: %s\n", ID);
 	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	printf("                                       ┃          상점 메뉴 선택           ┃\n");
