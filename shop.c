@@ -20,8 +20,22 @@ void shop()
 
 	system("mode con cols=150 lines=55 ");
 	int selMenu, selshop, currentSnack;
-
-
+	char text[100];
+	FILE* file2 = fopen("Catname.txt", "r"); // 파일 열기 (읽기 모드)
+	if (file2 != NULL) {
+		// 파일로부터 데이터 읽기
+		if (fscanf(file2, "%s", text) == 1) { // 문자열로 읽기 예시
+		}
+		else {
+			printf("파일에서 데이터를 읽지 못했습니다.\n");
+		}
+		fclose(file2); // 파일 닫기
+	}
+	else {
+		printf("파일을 열 수 없습니다.\n");
+	}
+	
+	
 	setlocale(LC_CTYPE, ""); //고양이 함수 불러오기
 	setmode(_fileno(stdout), _O_U16TEXT);
 	FILE* filePointer = _wfopen(L"CAT.txt", L"r+, ccs=UTF-8");
@@ -51,7 +65,7 @@ void shop()
 		// 파일을 열 수 없을 경우 기본 점수 0으로 설정
 	}
 	printf("\n\n");
-	printf("                                               고양이 이름: %s\n", ID);
+	printf("                                               고양이 이름: %s\n", text);
 	printf("                                          현재 보유하고 있는 간식 수: %d개\n", currentSnack);
 	printf("                                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	printf("                                       ┃          상점 메뉴 선택           ┃\n");

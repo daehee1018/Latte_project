@@ -20,10 +20,10 @@ void setTextColor1(int color) {
         FILE* file = fopen("score.txt", "r");
    
         if (file == NULL) {
-            FILE* File = fopen("score.txt", "w");
-            if (File != NULL) {
-                fprintf(File, "%d", 0); 
-                fclose(File);
+            FILE* file = fopen("score.txt", "w");
+            if (file != NULL) {
+                fprintf(file, "%d", 0); 
+                fclose(file);
             }
             else {
                 printf("error ");
@@ -34,15 +34,24 @@ void setTextColor1(int color) {
             fclose(file);
         }
       
-
-
-        FILE* catFile = fopen("cat.txt", "r");
-
-        if (catFile == NULL) {
-            FILE* CatFile = fopen("cat.txt", "w");
-            if (CatFile != NULL) {
-                fprintf(CatFile, "%d", 0);
-                fclose(CatFile);
+        FILE* file2 = fopen("Catname.txt", "r");
+        if (file2 == NULL) {
+            FILE* file2 = fopen("Catname.txt", "w");
+            if (file2 != NULL) {
+                fprintf(file2, " %s", " ");
+                fclose(file2);
+            }
+            else {
+                printf("error");
+            }
+        }
+        FILE* filePointer = _wfopen(L"CAT.txt", L"r");
+       
+        if (filePointer == NULL) {
+            FILE* filePointer = fopen("CAT.txt", "w");
+            if (filePointer != NULL) {
+                fprintf(filePointer, "%d", 0);
+                fclose(filePointer);
             }
             else {
                 printf(" error ");
@@ -50,7 +59,7 @@ void setTextColor1(int color) {
             }
         }
         else {
-            fclose(catFile);
+            fclose(filePointer);
         }
 
         

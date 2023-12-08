@@ -57,7 +57,41 @@
         choice_cat();
     }
 
+    void choice_newname() {
+        char choice;
+        char text[100];
+        FILE* file2 = fopen("Catname.txt", "r+");
+        if (file2 != NULL) {
+            fscanf(file2, "%s", text); // 파일에서 텍스트 읽기
+            printf("현재 고양이 이름: %s\n", text);
 
+            printf("이름를 초기화 하시겠습니까? (Y/N): ");
+            scanf(" %c", &choice);
+
+            if (choice == 'Y' || choice == 'y') {
+                fseek(file2, 0, SEEK_SET); // 파일 포인터를 파일의 처음으로 이동
+                fprintf(file2, " "); // 파일 초기화
+                fclose(file2);
+                printf("이름이 초기화되었습니다.\n");
+                printf("아무 키나 눌러 메인화면으로 돌아가기\n");
+                _getch();
+                system("cls");
+                id();
+            }
+            else {
+                printf("아무 키나 눌러 메인화면으로 돌아가기\n");
+                fclose(file2);
+                _getch();
+                system("cls");  title();
+            }
+        }
+        else {
+            printf("아무 키나 눌러 메인화면으로 돌아가기\n");
+            _getch();
+            system("cls");
+            title();
+        }
+    }
 
 void choice_snack(){
  char choice;
@@ -97,7 +131,8 @@ void choice() {
         printf("                                       ┃              초기화               ┃\n");
         printf("                                       ┃                                   ┃\n");
         printf("                                       ┃         1. 고양이 초기화          ┃\n");
-        printf("                                       ┃         2. 점수 초기화            ┃\n");
+        printf("                                       ┃         2. 고양이 이름 초기화     ┃\n");
+        printf("                                       ┃         3. 점수 초기화            ┃\n");
         printf("                                       ┗━━━━━━━━━━-━━━━━━━━━━━━━━━-━━━━━━━━┛\n");
         printf("\n");
         printf("\n");
@@ -113,6 +148,11 @@ void choice() {
             break;
         }
         else if (start_num == 2) {
+            system("cls");
+            choice_newname();
+            break;
+        }
+        else if (start_num == 3) {
             system("cls");
             choice_snack();
             break;
