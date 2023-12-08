@@ -159,8 +159,8 @@ void cat1magic_hat()
 	scanf(" %c", &buyHat);
 	if (buyHat == 'y' || buyHat == 'Y') {
 		
-		if (currentSnack >= 1) {
-			currentSnack -= 1;
+		if (currentSnack >= 700) {
+			currentSnack -= 700;
 			wprintf(L"\n\n                   마법사 모자를 성공적으로 구매하였습니다!\n");
 
 			setlocale(LC_CTYPE, "");
@@ -290,8 +290,8 @@ void cat1crown()
 	scanf(" %c", &buyCrown);
 
 	if (buyCrown == 'y' || buyCrown == 'Y') {
-		if (currentSnack >= 1) {
-			currentSnack -= 1;
+		if (currentSnack >= 999) {
+			currentSnack -= 999;
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -741,8 +741,8 @@ void cat2magic_hat() {
 	scanf(" %c", &buyHat);
 
 	if (buyHat == 'y' || buyHat == 'Y') {
-		if (currentSnack >= 1) {
-			currentSnack -= 1;
+		if (currentSnack >= 700) {
+			currentSnack -= 700;
 			printf("\n\n");
 			printf("                   마법사 모자를 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -867,8 +867,8 @@ void cat2crown() {
 	scanf(" %c", &buyCrown);
 
 	if (buyCrown == 'y' || buyCrown == 'Y') {
-		if (currentSnack >= 1) {
-			currentSnack -= 1;
+		if (currentSnack >= 999) {
+			currentSnack -= 999;
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -1317,8 +1317,8 @@ void cat3magic_hat() {
 	scanf(" %c", &buyHat);
 
 	if (buyHat == 'y' || buyHat == 'Y') {
-		if (currentSnack >= 1) {
-			currentSnack -= 1;
+		if (currentSnack >= 700) {
+			currentSnack -= 700;
 			printf("\n\n");
 			printf("                   마법사 모자를 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
@@ -1461,8 +1461,8 @@ void cat3crown() {
 	scanf(" %c", &buyCrown);
 
 	if (buyCrown == 'y' || buyCrown == 'Y') {
-		if (currentSnack >= 1) {
-			currentSnack -= 1;
+		if (currentSnack >= 999) {
+			currentSnack -= 999;
 			printf("\n\n");
 			printf("                   왕관을 성공적으로 구매하였습니다!\n");
 			setlocale(LC_CTYPE, "");
