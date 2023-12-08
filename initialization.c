@@ -47,6 +47,8 @@
         }
         else {
             printf("고양이 초기화를 취소했습니다.\n");
+            system("cls");
+            title();
         }
 
         printf("아무 키나 눌러 고양이 선택으로 돌아가기\n");
@@ -82,8 +84,7 @@ void choice_snack(){
         }
 
         else {
-            printf("파일을 열 수 없습니다. 초기화 실패.\n");
-        }
+           }
         printf("아무 키나 눌러 메인화면으로 돌아가기\n");
         _getch();
         system("cls");  title();
