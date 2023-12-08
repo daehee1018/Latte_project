@@ -47,6 +47,8 @@
         }
         else {
             printf("고양이 초기화를 취소했습니다.\n");
+            system("cls");
+            title();
         }
 
         printf("아무 키나 눌러 고양이 선택으로 돌아가기\n");
@@ -71,9 +73,8 @@ void choice_snack(){
         printf("점수를 초기화 하시겠습니까? (Y/N):  ");
         scanf("  %c", &choice);
 
-        // 점수 초기화
-        FILE* file = fopen("score.txt", "w");
         if (choice == 'Y' || choice == 'y') {
+            FILE* file = fopen("score.txt", "w");
             currentSnack = currentSnack * 0;
             fseek(file, 0, SEEK_SET); // 파일 포인터 위치를 파일의 시작으로 이동
             fprintf(file, "%d", currentSnack);
@@ -82,8 +83,7 @@ void choice_snack(){
         }
 
         else {
-            printf("파일을 열 수 없습니다. 초기화 실패.\n");
-        }
+           }
         printf("아무 키나 눌러 메인화면으로 돌아가기\n");
         _getch();
         system("cls");  title();
