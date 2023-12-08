@@ -136,7 +136,11 @@ int rock() {
         // 게임 결과 출력
         if (playerChoice == computerChoice) {
             printf(" \n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+
             printf("비겼습니다! 츄르 +1\n");
+            setTextColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+
             currentSnack += 1;
             check_snack += 1;
         }
